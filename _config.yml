@@ -13,19 +13,19 @@
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
-locale                   : "pt-BR"
+locale                   : "en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "Mauricio Belusso — Engenheiro de Software"
+title                    : "Mauricio Belusso — Software Engineer"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Mauricio Belusso"
-description              : "Sistemas que escalam. Código que não quebra. Engenharia pragmática, previsível e mensurável."
+description              : "Systems that scale. Code that doesn’t break. Pragmatic, predictable, measurable engineering."
 url                      : "https://mauriciobelusso.github.io"
 baseurl                  : ""
 repository               : "mauriciobelusso/mauriciobelusso.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
+masthead_title           : " " # overrides the website title displayed in the masthead, use " " for no title
 breadcrumbs              : # true, false (default)
 words_per_minute         : 200
 enable_copy_code_button  : # true, false (default)
@@ -55,7 +55,7 @@ comments:
     strict               : # 1 for enabled, 0 for disabled (default)
     input_position       : # "top", "bottom" # The comment input box will be placed above or below the comments
     emit_metadata        : # 1 for enabled, 0 for disabled (default) # https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#imetadatamessage
-    lang                 : # "en" (default)
+    lang                 : en # "en" (default)
     lazy                 : # true, false # Loading of the comments will be deferred until the user scrolls near the comments container.
   staticman:
     branch               : # "master"
@@ -116,8 +116,8 @@ analytics:
 author:
   name             : "Mauricio Belusso"
   avatar           : # opcional: "/assets/images/avatar.jpg"
-  bio              : "Engenheiro de Software — Java, Spring Boot, Arquitetura Escalável e Alta Performance."
-  location         : "Brasil"
+  bio              : "Software Engineer — Java, Spring Boot, Scalable Architecture and High Performance."
+  location         : "Brazil"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
@@ -150,7 +150,7 @@ footer:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url:
-  since: "2013"
+  since: "2014"
 
 
 # Reading Files
@@ -320,6 +320,6 @@ defaults:
       # related: false
       author_profile: true
       read_time: true
-      comments: # true
+      comments: false
       share: true
       related: true

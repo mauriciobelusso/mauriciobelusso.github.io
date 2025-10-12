@@ -1,0 +1,27 @@
+---
+---
+
+/* largura controlada e leitura “fria” */
+.page { max-width: 980px; }
+
+/* títulos mais densos */
+.page__content h1 { font-weight: 700; letter-spacing: .2px; }
+.page__content h2 { font-weight: 700; margin-top: 2.2rem; }
+
+/* hero centralizado */
+.page__content > h1 + blockquote {
+  margin: 1rem auto 2rem auto;
+  padding-left: 1.2rem;
+  border-left: 3px solid #bfa35e; /* dourado discreto */
+  max-width: 820px;
+}
+
+/* listas mais “técnicas” */
+.page__content ul { margin-top: .6rem; }
+.page__content li { margin: .25rem 0; }
+
+.footer-links {
+  text-align: center;
+  a { text-decoration: none; }
+  span { margin: 0 .5rem; opacity: .6; }
+}
