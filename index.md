@@ -157,6 +157,16 @@ A tangible expression of applied software engineering — **built independently,
 
 ---
 
+## 🟡 **Auri Manifesto — Value Without Noise**
+
+Auri is a lightweight engineering framework focused on **predictable flow, measurable delivery, and zero theater**.  
+It was born from real-world software delivery — stripping away ceremony to focus purely on value, evidence, and discipline.
+
+> Framework: [The Auri Manifesto](https://auricore-labs.github.io/auri-manifesto)  
+> Motto: *Flow, Value, and Clarity.*
+
+---
+
 ## 📈 **Practical Conclusion**
 
 Full-stack engineer focused on **scalable, predictable, and sustainable systems**.  
