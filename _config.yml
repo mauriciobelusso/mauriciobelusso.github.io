@@ -93,7 +93,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : "/assets/images/og-card.jpg"  # crie esse arquivo (1200x630)
+og_image                 : # path to default social share image, e.g. "/assets/images/og-card.jpg" (1200x630)
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -169,22 +169,17 @@ exclude:
   - assets/js/_main.js
   - assets/js/vendor
   - Capfile
-  - CHANGELOG
   - config
   - Gemfile
   - Gruntfile.js
   - gulpfile.js
   - LICENSE
   - log
-  - minimal-mistakes-jekyll.gemspec
   - node_modules
   - package.json
   - package-lock.json
-  - Rakefile
   - README
   - tmp
-  - /docs # ignore Minimal Mistakes /docs
-  - /test # ignore Minimal Mistakes /test
 keep_files:
   - .git
   - .svn
