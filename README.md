@@ -1,36 +1,25 @@
 # mauriciobelusso.github.io
 
-Source code for my personal website and CV, published at
-**[mauriciobelusso.github.io](https://mauriciobelusso.github.io)**.
+Source code for my personal portfolio and CV, published at
+[mauriciobelusso.github.io](https://mauriciobelusso.github.io).
 
-The site is a single-page profile built with [Jekyll](https://jekyllrb.com/)
-and the [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/)
-theme, and is served for free through [GitHub Pages](https://pages.github.com/).
+This is a plain static, single-page portfolio. The page is written in HTML and
+uses the [Tailwind CSS CDN](https://tailwindcss.com/docs/installation/play-cdn)
+for styling. There is no Jekyll setup, dependency installation, or build step.
 
-## Content
+## GitHub Pages
 
-- `index.md` — the homepage content (professional summary and experience).
-- `_config.yml` — site metadata, author/social links, and theme settings.
-- `_data/navigation.yml` — links shown in the site navigation.
+Configure GitHub Pages to deploy from the **branch** containing this repository
+and the repository **root** (`/`) as the folder. The root `index.html` is served
+directly; `.nojekyll` prevents Jekyll processing.
 
-## Local development
-
-Requirements: Ruby and [Bundler](https://bundler.io/).
-
-```bash
-make install   # bundle install
-make serve     # bundle exec jekyll serve --livereload (http://127.0.0.1:4000)
-make build     # bundle exec jekyll build -> ./_site
-make clean     # remove build/cache artifacts
-```
-
-See the `Makefile` for the full list of available commands.
+For private repositories, GitHub Pages requires an eligible GitHub plan. Public
+repositories can use GitHub Pages at no additional cost.
 
 ## License
 
-The site content (résumé text and personal information) belongs to
-Mauricio Belusso. The underlying theme code is distributed under the MIT
-License — see [LICENSE](LICENSE) for details.
+The site content (résumé text and personal information) belongs to Mauricio
+Belusso. See [LICENSE](LICENSE) for licensing details.
 
 ## Contact
 
