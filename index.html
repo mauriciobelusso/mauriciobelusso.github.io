@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mauricio Belusso | Engenheiro de Software Java Sênior</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        surface: {
+                            DEFAULT: '#090D16',
+                            card: '#111726',
+                            border: '#1E293B',
+                            hover: '#1B2438'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-surface text-slate-300 font-sans antialiased selection:bg-emerald-500/20 selection:text-emerald-400">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-md border-b border-surface-border">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="#" class="font-mono text-sm font-medium text-slate-100 hover:text-emerald-400 transition-colors">
+                <span class="text-emerald-500">&gt;</span> mauricio.belusso()
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-mono">
+                <a href="#sobre" class="hover:text-slate-100 transition-colors">// sobre</a>
+                <a href="#conquistas" class="hover:text-slate-100 transition-colors">// conquistas</a>
+                <a href="#experiencia" class="hover:text-slate-100 transition-colors">// experiencia</a>
+                <a href="#stack" class="hover:text-slate-100 transition-colors">// stack</a>
+                <a href="mailto:mauriciobelusso@gmail.com" class="px-3 py-1.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-all">
+                    contato_direto()
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 pt-32 pb-24 space-y-28">
+
+        <!-- Hero Section -->
+        <section id="sobre" class="space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Disponível para projetos críticos, consultorias & novas posições
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl font-bold text-slate-100 tracking-tight leading-none">
+                Mauricio Belusso <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-slate-400 to-slate-600">
+                    Engenheiro de Software Java Sênior
+                </span>
+            </h1>
+
+            <p class="text-slate-400 max-w-3xl text-base sm:text-lg leading-relaxed font-light">
+                Especialista na construção, otimização e evolução de sistemas críticos de alta concorrência e processamento massivo de dados em nuvem (AWS). Focado em pragmatismo técnico, eficiência de hardware e otimização de custos (FinOps).
+            </p>
+
+            <div class="pt-4 flex flex-wrap gap-4 items-center">
+                <a href="mailto:mauriciobelusso@gmail.com" class="px-6 py-3 rounded-lg bg-slate-100 text-slate-900 font-medium text-sm hover:bg-slate-200 transition-all shadow-lg shadow-white/5">
+                    Entrar em Contato
+                </a>
+                <a href="https://github.com/mauriciobelusso" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg bg-surface-card border border-surface-border text-slate-300 font-mono text-sm hover:border-slate-600 transition-all">
+                    GitHub Profile &rarr;
+                </a>
+                <a href="https://www.linkedin.com/in/mauriciobelusso" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg bg-surface-card border border-surface-border text-slate-300 font-mono text-sm hover:border-slate-600 transition-all">
+                    LinkedIn Profile &rarr;
+                </a>
+            </div>
+        </section>
+
+        <!-- Metrics & FinOps Highlights -->
+        <section id="conquistas" class="space-y-8">
+            <div class="space-y-2">
+                <h2 class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Impacto Measurable & FinOps</h2>
+                <h3 class="text-2xl font-semibold text-slate-100">Resultados de Engenharia em Produção</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- FinOps Card -->
+                <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-3 hover:border-slate-700 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-xs text-emerald-400 font-semibold">-85% Custos AWS EKS</span>
+                        <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-slate-400">Troubleshooting & Memory Leak</span>
+                    </div>
+                    <h4 class="text-lg font-medium text-slate-100">Otimização de API Transacional de Alta Frequência</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Diagnostiquei e corrigi um vazamento de memória crítico em endpoint exposto a robôs de automação. Reduzi a infraestrutura necessária de 12 pods (3GB RAM cada) para apenas 1 a 2 pods estáveis (1.5GB RAM), zerando falhas de Out of Memory.
+                    </p>
+                </div>
+
+                <!-- Bulk Batch Card -->
+                <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-3 hover:border-slate-700 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-xs text-emerald-400 font-semibold">300k Registros / Batch</span>
+                        <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-slate-400">Restrição de Crédito</span>
+                    </div>
+                    <h4 class="text-lg font-medium text-slate-100">Processamento em Lote de Alta Escalabilidade</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Arquiturei fluxos escaláveis para anotação e conciliação de crédito privado (PEFIN, REFIN e CONVEM) processando até 300 mil CPFs/CNPJs em uma única execução sem degradação do sistema.
+                    </p>
+                </div>
+
+                <!-- Java 21/25 & Virtual Threads Card -->
+                <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-3 hover:border-slate-700 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-xs text-emerald-400 font-semibold">100 mcores &rarr; 30 mcores</span>
+                        <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-slate-400">Virtual Threads (Loom)</span>
+                    </div>
+                    <h4 class="text-lg font-medium text-slate-100">Migração & Concorrência de Ponta (Java 25 LTS)</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Conduzi a modernização de microsserviços do Java 8 ao 25 LTS. Adotei Virtual Threads reduzindo em 70% o consumo médio de CPU e mitigando bloqueios de threads físicas (carrier thread pinning).
+                    </p>
+                </div>
+
+                <!-- Dynamic Engine Card -->
+                <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-3 hover:border-slate-700 transition-all">
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-xs text-emerald-400 font-semibold">Semanas &rarr; Instantâneo</span>
+                        <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-slate-400">Autonomia Operacional</span>
+                    </div>
+                    <h4 class="text-lg font-medium text-slate-100">Motor Dinâmico de Substituição de Variáveis</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Desenvolvi motor de renderização de documentos de notificação que eliminou a necessidade de codificação/deploys para novos layouts, concedendo autonomia total à equipe de operações.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
+        <section id="experiencia" class="space-y-8">
+            <div class="space-y-2">
+                <h2 class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Carreira & Histórico</h2>
+                <h3 class="text-2xl font-semibold text-slate-100">Trajetória Profissional</h3>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Job 1 -->
+                <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-4">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-surface-border pb-4">
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-100">Verx Tecnologia e Inovação</h4>
+                            <p class="text-xs font-mono text-emerald-400">Engenheiro de Software Java Sênior</p>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Jan 2025 – Presente</span>
+                    </div>
+                    <ul class="text-xs text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
+                        <li>Liderança na redução de 85% do custo de infraestrutura de API crítica em AWS EKS.</li>
+                        <li>Arquitetura de soluções batch para processamento massivo de registros de restrição de crédito.</li>
+                        <li>Migração contínua do ecossistema de microsserviços até Java 25 LTS com Virtual Threads.</li>
+                        <li>Tuning de banco de dados NoSQL (MongoDB), análise de explain plans e aplicação de índices via Mongock sem deploy locks.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Java 25</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Spring Boot</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">AWS EKS</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">MongoDB</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Mongock</span>
+                    </div>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-4">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-surface-border pb-4">
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-100">Softfocus</h4>
+                            <p class="text-xs font-mono text-emerald-400">Desenvolvedor Web</p>
+                        </div>
+                        <span class="text-xs font-mono text-slate-500">Nov 2023 – Nov 2024</span>
+                    </div>
+                    <ul class="text-xs text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
+                        <li>Redução de mais de 60% dos defeitos em produção e 70% de simplificação estrutural do código.</li>
+                        <li>Modernização de legado Struts através da criação de framework customizado de Injeção de Dependências por anotações.</li>
+                        <li>Integração bancária direta do Banco Santander ao BACEN via APIs REST seguras.</li>
+                    </ul>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Java</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Struts</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">PostgreSQL</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Docker</span>
+                    </div>
+                </div>
+
+                <!-- Job 3 & 4 Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-3">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-base font-bold text-slate-100">Mirante Tecnologia</h4>
+                                <p class="text-xs font-mono text-emerald-400">Desenvolvedor Web</p>
+                            </div>
+                            <span class="text-[10px] font-mono text-slate-500">Mar 2023 – Nov 2023</span>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Gerenciamento de CI/CD para mais de 70 microsserviços Java. Implementação de observabilidade com stack ELK (Kibana) e automação via Jenkins e Terraform.
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-3">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-base font-bold text-slate-100">OSF Digital</h4>
+                                <p class="text-xs font-mono text-emerald-400">Desenvolvedor Web</p>
+                            </div>
+                            <span class="text-[10px] font-mono text-slate-500">Mai 2022 – Mar 2023</span>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Atuação no projeto SuperApp Porto Seguro (SRE/Inovação). Redução do tempo de deploy de 20 para 8 minutos e estruturação de observabilidade em nuvem.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Job 5 -->
+                <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-3">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="text-base font-bold text-slate-100">VIASOFT</h4>
+                            <p class="text-xs font-mono text-emerald-400">Desenvolvedor Web</p>
+                        </div>
+                        <span class="text-[10px] font-mono text-slate-500">Jul 2019 – Abr 2022</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Transição arquitetural de sistemas monolíticos legado (Delphi) para microsserviços REST stateless em Java/Spring Boot. Liderança técnica no produto Sales Platform (Web + Android).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Matrix -->
+        <section id="stack" class="space-y-8">
+            <div class="space-y-2">
+                <h2 class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Stack & Habilidades</h2>
+                <h3 class="text-2xl font-semibold text-slate-100">Domínio Técnico</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-4">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center font-mono text-emerald-400 font-bold">
+                        BE
+                    </div>
+                    <h4 class="font-medium text-slate-100">Linguagens & Backend</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Especialista no ecossistema Java moderno e concorrência avançada.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Java (8 a 25 LTS)</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Spring Boot</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Virtual Threads</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Hibernate</span>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-4">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center font-mono text-emerald-400 font-bold">
+                        CL
+                    </div>
+                    <h4 class="font-medium text-slate-100">Cloud, DevOps & FinOps</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Infraestrutura como código, conteinerização e otimização de custos de nuvem.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">AWS (EKS, S3, CloudWatch)</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Docker</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Terraform</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Jenkins</span>
+                    </div>
+                </div>
+
+                <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-4">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center font-mono text-emerald-400 font-bold">
+                        AI
+                    </div>
+                    <h4 class="font-medium text-slate-100">IA & Observabilidade</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Engenharia assistida por IA e monitoramento em tempo real de microsserviços.
+                    </p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">Claude Code / Copilot</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">ELK / Kibana</span>
+                        <span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">MongoDB / PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contato" class="p-8 sm:p-12 rounded-2xl bg-gradient-to-b from-surface-card to-surface border border-surface-border text-center space-y-6">
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Vamos conversar sobre engenharia e resultados?</h2>
+            <p class="text-slate-400 text-sm max-w-lg mx-auto leading-relaxed">
+                Aberto para oportunidades de Engenharia de Software Sênior, arquitetura de microsserviços e otimizações FinOps.
+            </p>
+            <div class="pt-2 flex flex-wrap justify-center gap-4">
+                <a href="mailto:mauriciobelusso@gmail.com" class="px-6 py-3 rounded-lg bg-emerald-500 text-slate-950 font-semibold text-sm hover:bg-emerald-400 transition-all">
+                    mauriciobelusso@gmail.com
+                </a>
+                <a href="https://github.com/mauriciobelusso" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg bg-surface border border-surface-border text-slate-300 font-mono text-sm hover:border-slate-600 transition-all">
+                    GitHub Profile
+                </a>
+                <a href="https://www.linkedin.com/in/mauriciobelusso" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg bg-surface border border-surface-border text-slate-300 font-mono text-sm hover:border-slate-600 transition-all">
+                    LinkedIn Profile
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-surface-border py-8 text-center font-mono text-xs text-slate-600">
+        <p>&copy; 2026 Mauricio Belusso. Projetado com foco em alta performance e código limpo.</p>
+    </footer>
+
+</body>
+</html>
