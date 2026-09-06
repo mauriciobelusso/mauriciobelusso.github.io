@@ -3,18 +3,37 @@
 Source code for my personal portfolio and CV, published at
 [mauriciobelusso.github.io](https://mauriciobelusso.github.io).
 
-This is a plain static, single-page portfolio. The page is written in HTML and
-uses the [Tailwind CSS CDN](https://tailwindcss.com/docs/installation/play-cdn)
-for styling. There is no Jekyll setup, dependency installation, or build step.
+## Resume-as-Code
+
+Curriculum data lives in a single source of truth: [`resume.json`](resume.json).
+
+The static page (`index.html`) loads that file in the browser and renders every
+section (hero, highlights, experience, skills, education, languages). Edit
+`resume.json` and refresh — no build step.
+
+Schema outline:
+
+- `personal` — name, title, summary, contacts, languages
+- `highlights` — measurable impact cards
+- `experience` — roles, achievements, stack tags
+- `skills` — skill groups
+- `education` — academic background
+
+## Local preview
+
+Because the page fetches `resume.json`, open it over HTTP (not `file://`):
+
+```bash
+python3 -m http.server 8080
+# then visit http://localhost:8080
+```
 
 ## GitHub Pages
 
 Configure GitHub Pages to deploy from the **branch** containing this repository
 and the repository **root** (`/`) as the folder. The root `index.html` is served
-directly; `.nojekyll` prevents Jekyll processing.
-
-For private repositories, GitHub Pages requires an eligible GitHub plan. Public
-repositories can use GitHub Pages at no additional cost.
+directly; `.nojekyll` prevents Jekyll processing. `resume.json` is served as a
+static asset next to the page.
 
 ## License
 

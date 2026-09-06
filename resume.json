@@ -1,0 +1,131 @@
+{
+  "personal": {
+    "name": "Mauricio Belusso",
+    "title": "Engenheiro de Software Java Sênior",
+    "summary": "Especialista na construção, otimização e evolução de sistemas críticos de alta concorrência e processamento massivo de dados em nuvem (AWS). Focado em pragmatismo técnico, FinOps e engenharia assistida por IA para acelerar entregas sem abrir mão do rigor arquitetural.",
+    "availability": "Disponível para projetos críticos, consultorias & novas posições",
+    "email": "mauriciobelusso@gmail.com",
+    "github": "https://github.com/mauriciobelusso",
+    "linkedin": "https://www.linkedin.com/in/mauriciobelusso",
+    "location": "Brasil",
+    "languages": [
+      {
+        "name": "Português",
+        "level": "Nativo"
+      },
+      {
+        "name": "Inglês",
+        "level": "Proficiência Profissional"
+      }
+    ]
+  },
+  "highlights": [
+    {
+      "metric": "-85% Custos AWS EKS",
+      "tag": "Troubleshooting & Memory Leak",
+      "title": "Otimização de API Transacional de Alta Frequência",
+      "description": "Diagnostiquei e corrigi um vazamento de memória crítico em endpoint exposto a robôs de automação. Reduzi a infraestrutura necessária de 12 pods (3GB RAM cada) para apenas 1-2 pods (1.5GB RAM), eliminando quedas por Out-of-Memory (OOM) em produção."
+    },
+    {
+      "metric": "300k Registros / Batch",
+      "tag": "Restrição de Crédito",
+      "title": "Processamento em Lote de Alta Escalabilidade",
+      "description": "Arquiturei fluxos escaláveis para anotação e conciliação de crédito privado (PEFIN, REFIN e CONVEM) processando até 300 mil CPFs/CNPJs em uma única execução sem impacto na disponibilidade."
+    },
+    {
+      "metric": "100 mcores → 30 mcores",
+      "tag": "Virtual Threads (Loom)",
+      "title": "Migração & Concorrência de Ponta (Java 25 LTS)",
+      "description": "Conduzi a modernização de microsserviços do Java 8 ao 25 LTS. Adotei Virtual Threads reduzindo em 70% o consumo médio de CPU e mitigando bloqueios de threads físicas (carrier thread pinning) em blocos sincronizados."
+    },
+    {
+      "metric": "Semanas → Instantâneo",
+      "tag": "Autonomia Operacional",
+      "title": "Motor Dinâmico de Substituição de Variáveis",
+      "description": "Desenvolvi motor de renderização de documentos de notificação que eliminou a necessidade de codificação/deploys para novos layouts, concedendo autonomia total à equipe operacional para criar templates ilimitados."
+    }
+  ],
+  "experience": [
+    {
+      "company": "Verx Tecnologia e Inovação",
+      "role": "Engenheiro de Software Java Sênior",
+      "period": "Jan 2025 – Presente",
+      "achievements": [
+        "Liderança na redução de 85% do custo de infraestrutura de API crítica em AWS EKS.",
+        "Arquitetura de soluções batch para processamento massivo de registros de restrição de crédito.",
+        "Migração contínua do ecossistema de microsserviços até Java 25 LTS com Virtual Threads.",
+        "Tuning de banco de dados NoSQL (MongoDB), análise de explain plans e aplicação de índices via Mongock sem deploy locks."
+      ],
+      "stack": ["Java 25", "Spring Boot", "AWS EKS", "MongoDB", "Mongock"]
+    },
+    {
+      "company": "Softfocus",
+      "role": "Desenvolvedor Web",
+      "period": "Nov 2023 – Nov 2024",
+      "achievements": [
+        "Redução de mais de 60% dos defeitos em produção e 70% de simplificação estrutural do código.",
+        "Modernização de legado Struts através da criação de framework customizado de Injeção de Dependências por anotações.",
+        "Integração direta com grandes bancos e cooperativas de crédito, conectando sistemas ao BACEN via APIs REST seguras."
+      ],
+      "stack": ["Java", "Struts", "PostgreSQL", "Docker"]
+    },
+    {
+      "company": "Mirante Tecnologia",
+      "role": "Desenvolvedor Web · Precursor do Projeto",
+      "period": "Mar 2023 – Nov 2023",
+      "achievements": [
+        "Idealizador e precursor do projeto de automação de editais para o INCRA, definindo do zero a stack tecnológica e a arquitetura da solução.",
+        "Desenvolvimento do módulo de geração automatizada de editais, eliminando processos manuais e reduzindo o tempo de elaboração.",
+        "Implementação de assinatura digital de editais com certificado digital para a equipe interna.",
+        "Integração com o gov.br permitindo que candidatos se autenticassem e se inscrevessem diretamente nos editais.",
+        "Estruturação da esteira de CI/CD no GitLab, automatizando build, testes e deploys do projeto desde a sua concepção."
+      ],
+      "stack": ["Java", "GitLab CI/CD", "gov.br", "Certificado Digital"]
+    },
+    {
+      "company": "OSF Digital",
+      "role": "Desenvolvedor Web · SRE",
+      "period": "Mai 2022 – Mar 2023",
+      "achievements": [
+        "Atuação no projeto SuperApp Porto Seguro em conjunto com os times de Inovação e SRE.",
+        "Gerenciamento de CI/CD para mais de 70 microsserviços Java, reduzindo o tempo de deploy de 20 para 8 minutos.",
+        "Estruturação de observabilidade em nuvem com ELK Stack (Kibana), OpenSearch, AWS CloudWatch e AppDynamics.",
+        "Implementação de identificação de dispositivos de acesso às APIs a partir da análise do User-Agent de aplicativos e navegadores, permitindo monitoramento e troubleshooting mais precisos por canal de origem."
+      ],
+      "stack": ["Java", "Kibana", "OpenSearch", "AWS CloudWatch", "AppDynamics"]
+    },
+    {
+      "company": "VIASOFT",
+      "role": "Desenvolvedor Web · Tech Lead · Scrum Master",
+      "period": "Jul 2019 – Abr 2022",
+      "achievements": [
+        "Transição arquitetural de sistemas monolíticos legado (Delphi) para microsserviços REST stateless em Java/Spring Boot.",
+        "Transição de carreira do desenvolvimento Desktop para Web, assumindo como dono técnico o produto Sales Platform Web e evoluindo-o continuamente conforme as demandas do mercado, enquanto convivia com a versão Desktop já existente.",
+        "Atuação como Tech Lead e Scrum Master do time, conduzindo cerimônias ágeis e definindo padrões técnicos e de code review.",
+        "Implantação de esteira de integração e entrega contínua (CI/CD) utilizando Jenkins, automatizando builds e deploys da plataforma.",
+        "Viagem técnica ao cliente para levantamento de requisitos, suporte à implantação e alinhamento direto com stakeholders de negócio."
+      ],
+      "stack": ["Java", "Spring Boot", "Delphi", "Jenkins", "Scrum"]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Linguagens & Backend",
+      "description": "Especialista no ecossistema Java moderno e concorrência avançada.",
+      "items": ["Java (8 a 25 LTS)", "Spring Boot", "Virtual Threads", "Hibernate"]
+    },
+    {
+      "category": "Cloud, DevOps & FinOps",
+      "description": "Infraestrutura como código, conteinerização e otimização de custos de nuvem.",
+      "items": ["AWS (EKS, S3, CloudWatch)", "Docker", "Terraform", "Jenkins / GitLab CI"]
+    },
+    {
+      "category": "IA & Observabilidade",
+      "description": "Engenharia assistida por IA e monitoramento em tempo real de microsserviços.",
+      "items": ["Claude Code / Copilot", "ELK / Kibana", "OpenSearch", "AppDynamics", "MongoDB / PostgreSQL"]
+    }
+  ],
+  "education": {
+    "academic": "Tecnólogo em Análise e Desenvolvimento de Sistemas — UNINTER (2022 – 2023)"
+  }
+}
