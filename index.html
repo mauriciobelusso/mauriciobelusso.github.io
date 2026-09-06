@@ -63,8 +63,8 @@
                 <a href="#experiencia" class="hover:text-slate-100 transition-colors">// experiencia</a>
                 <a href="#stack" class="hover:text-slate-100 transition-colors">// stack</a>
                 <a href="#formacao" class="hover:text-slate-100 transition-colors">// formacao</a>
-                <a id="nav-email" href="mailto:mauriciobelusso@gmail.com" class="px-3 py-1.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-all">
-                    contato_direto()
+                <a id="nav-contact" href="#contato" class="px-3 py-1.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-all">
+                    canal_tecnico()
                 </a>
             </nav>
         </div>
@@ -74,8 +74,8 @@
 
         <!-- Hero Section -->
         <section id="sobre" class="space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-surface-border text-xs font-mono text-slate-300">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
                 <span id="availability">Carregando…</span>
             </div>
             
@@ -91,8 +91,8 @@
             </p>
 
             <div class="pt-4 flex flex-wrap gap-4 items-center">
-                <a id="cta-email" href="mailto:mauriciobelusso@gmail.com" class="px-6 py-3 rounded-lg bg-slate-100 text-slate-900 font-medium text-sm hover:bg-slate-200 transition-all shadow-lg shadow-white/5">
-                    Entrar em Contato
+                <a id="cta-email" href="mailto:mauriciobelusso@gmail.com?subject=Arquitetura%2C%20escala%20ou%20projeto%20de%20impacto%20cr%C3%ADtico" class="px-6 py-3 rounded-lg bg-slate-100 text-slate-900 font-medium text-sm hover:bg-slate-200 transition-all shadow-lg shadow-white/5">
+                    Conversar sobre arquitetura
                 </a>
                 <a id="cta-github" href="https://github.com/mauriciobelusso" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg bg-surface-card border border-surface-border text-slate-300 font-medium text-sm hover:bg-surface-hover transition-all">
                     GitHub Profile &rarr;
@@ -155,13 +155,15 @@
 
         <!-- Contact Section -->
         <section id="contato" class="p-8 sm:p-12 rounded-2xl bg-gradient-to-b from-surface-card to-surface border border-surface-border text-center space-y-6">
-            <h2 class="text-2xl sm:text-3xl font-bold text-slate-100">Vamos conversar sobre engenharia e resultados?</h2>
-            <p class="text-slate-400 text-sm max-w-lg mx-auto leading-relaxed">
-                Aberto para oportunidades de Engenharia de Software Sênior, arquitetura de microsserviços e otimizações FinOps.
+            <p class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Canal restrito</p>
+            <h2 id="contact-headline" class="text-2xl sm:text-3xl font-bold text-slate-100">O canal é restrito de propósito.</h2>
+            <p id="contact-body" class="text-slate-400 text-sm max-w-2xl mx-auto leading-relaxed">
+                Estou imerso em problemas complexos de arquitetura e escalabilidade. Conversas aqui se limitam a arquitetura, trocas técnicas de alto nível ou projetos de impacto crítico. Comprometimento exclusivo não se desloca por uma vaga comum: exige um desafio técnico fora do comum e uma cultura de engenharia extremamente séria.
             </p>
+            <p class="font-mono text-[11px] text-slate-500 tracking-wide">Arquitetura · Trocas técnicas de alto nível · Impacto crítico</p>
             <div class="pt-2 flex flex-wrap justify-center gap-4">
-                <a id="contact-email" href="mailto:mauriciobelusso@gmail.com" class="px-6 py-3 rounded-lg bg-emerald-500 text-slate-950 font-semibold text-sm hover:bg-emerald-400 transition-all">
-                    mauriciobelusso@gmail.com
+                <a id="contact-email" href="mailto:mauriciobelusso@gmail.com?subject=Arquitetura%2C%20escala%20ou%20projeto%20de%20impacto%20cr%C3%ADtico" class="px-6 py-3 rounded-lg bg-emerald-500 text-slate-950 font-semibold text-sm hover:bg-emerald-400 transition-all">
+                    Conversar sobre arquitetura
                 </a>
                 <a id="contact-github" href="https://github.com/mauriciobelusso" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-lg bg-surface border border-surface-border text-slate-300 font-mono text-sm hover:bg-surface-hover transition-all">
                     GitHub Profile
@@ -211,13 +213,18 @@
             setText('personal-name', personal.name);
             setText('personal-title', personal.title);
             setText('personal-summary', personal.summary);
+            setText('contact-headline', personal.contactHeadline);
+            setText('contact-body', personal.contactBody);
+
+            const contactLabel = personal.contactCta || 'Conversar sobre arquitetura';
+            setText('cta-email', contactLabel);
+            setText('contact-email', contactLabel);
 
             if (personal.email) {
-                const mail = `mailto:${personal.email}`;
-                setHref('nav-email', mail);
+                const subject = encodeURIComponent('Arquitetura, escala ou projeto de impacto crítico');
+                const mail = `mailto:${personal.email}?subject=${subject}`;
                 setHref('cta-email', mail);
                 setHref('contact-email', mail);
-                setText('contact-email', personal.email);
             }
 
             setHref('cta-github', personal.github);
