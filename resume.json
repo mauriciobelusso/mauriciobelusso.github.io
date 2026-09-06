@@ -99,13 +99,13 @@
       "role": "Desenvolvedor Web · Tech Lead · Scrum Master",
       "period": "Jul 2019 – Abr 2022",
       "achievements": [
-        "Transição arquitetural de sistemas monolíticos legado (Delphi) para microsserviços REST stateless em Java/Spring Boot.",
+        "Integração do sistema legado (Delphi) com microsserviço REST stateless em Java/Spring Boot para viabilizar o funcionamento com o aplicativo Android.",
         "Transição de carreira do desenvolvimento Desktop para Web, assumindo como dono técnico o produto Sales Platform Web e evoluindo-o continuamente conforme as demandas do mercado, enquanto convivia com a versão Desktop já existente.",
         "Atuação como Tech Lead e Scrum Master do time, conduzindo cerimônias ágeis e definindo padrões técnicos e de code review.",
         "Implantação de esteira de integração e entrega contínua (CI/CD) utilizando Jenkins, automatizando builds e deploys da plataforma.",
         "Viagem técnica ao cliente para levantamento de requisitos, suporte à implantação e alinhamento direto com stakeholders de negócio."
       ],
-      "stack": ["Java", "Spring Boot", "Delphi", "Jenkins", "Scrum"]
+      "stack": ["Java", "Spring Boot", "Delphi", "Android", "Jenkins", "Scrum"]
     }
   ],
   "skills": [
