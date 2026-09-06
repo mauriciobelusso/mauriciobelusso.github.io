@@ -37,9 +37,10 @@
     },
     {
       "metric": "100 mcores → 30 mcores",
+      "metrics": ["100 mcores → 30 mcores", "1,3 GB → 900 MB"],
       "tag": "Virtual Threads (Loom)",
       "title": "Migração & Concorrência de Ponta (Java 25 LTS)",
-      "description": "Conduzi a modernização de microsserviços do Java 8 ao 25 LTS. Adotei Virtual Threads reduzindo em 70% o consumo médio de CPU e mitigando bloqueios de threads físicas (carrier thread pinning) em blocos sincronizados."
+      "description": "Conduzi a modernização de microsserviços do Java 8 ao 25 LTS. Adotei Virtual Threads reduzindo em 70% o consumo médio de CPU e a memória de 1,3 GB para 900 MB — patamar mantido sob alta carga — e mitigando bloqueios de threads físicas (carrier thread pinning) em blocos sincronizados."
     },
     {
       "metric": "Semanas → Instantâneo",
@@ -56,7 +57,7 @@
       "achievements": [
         "Liderança na redução de 85% do custo de infraestrutura de API crítica em AWS EKS.",
         "Arquitetura de soluções batch para processamento massivo de registros de restrição de crédito.",
-        "Migração contínua do ecossistema de microsserviços até Java 25 LTS com Virtual Threads.",
+        "Migração contínua do ecossistema de microsserviços até Java 25 LTS com Virtual Threads, reduzindo CPU de 100 para 30 mcores e memória de 1,3 GB para 900 MB mesmo sob alta carga.",
         "Tuning de banco de dados NoSQL (MongoDB), análise de explain plans e aplicação de índices via Mongock sem deploy locks."
       ],
       "stack": ["Java 25", "Spring Boot", "AWS EKS", "MongoDB", "Mongock"]
