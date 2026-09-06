@@ -1,0 +1,16 @@
+{
+  "name": "mauriciobelusso-resume",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Resume-as-Code architecture for Mauricio Belusso's CV and portfolio site",
+  "main": "api/generate-cv.js",
+  "scripts": {
+    "render-pdf": "node scripts/render-pdf.js"
+  },
+  "dependencies": {
+    "openai": "^4.86.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.1"
+  }
+}
