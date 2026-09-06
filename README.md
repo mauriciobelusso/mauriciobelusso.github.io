@@ -13,7 +13,7 @@ section (hero, highlights, experience, skills, education, languages). Edit
 
 Schema outline:
 
-- `personal` — name, title, summary, contacts, languages
+- `personal` — name, title, summary, availability, restricted contact copy, contacts, languages
 - `highlights` — measurable impact cards
 - `experience` — roles, achievements, stack tags
 - `skills` — skill groups
