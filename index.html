@@ -30,11 +30,28 @@
             }
         }
     </script>
+    <style>
+        @media print {
+            .no-print, header, footer, #ai-modal {
+                display: none !important;
+            }
+            body {
+                background-color: #090D16 !important;
+                color: #cbd5e1 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            main {
+                padding-top: 1rem !important;
+                padding-bottom: 1rem !important;
+            }
+        }
+    </style>
 </head>
 <body class="bg-surface text-slate-300 font-sans antialiased selection:bg-emerald-500/20 selection:text-emerald-400">
 
     <!-- Header / Navbar -->
-    <header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-md border-b border-surface-border">
+    <header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-md border-b border-surface-border no-print">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href="#" class="font-mono text-sm font-medium text-slate-100 hover:text-emerald-400 transition-colors">
                 <span class="text-emerald-500">&gt;</span> mauricio.belusso()
@@ -382,9 +399,254 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-surface-border py-8 text-center font-mono text-xs text-slate-600">
+    <footer class="border-t border-surface-border py-8 text-center font-mono text-xs text-slate-600 no-print space-y-3">
         <p>&copy; 2026 Mauricio Belusso. Projetado com foco em alta performance e código limpo.</p>
+        <div>
+            <button id="open-ai-modal" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-card border border-surface-border text-slate-400 hover:text-emerald-400 hover:border-emerald-500/30 transition-all cursor-pointer">
+                <span>⚡</span> Gerar CV sob medida (IA)
+            </button>
+        </div>
     </footer>
+
+    <!-- Admin AI Generator Modal -->
+    <div id="ai-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm p-4 overflow-y-auto flex items-center justify-center no-print">
+        <div class="relative w-full max-w-2xl bg-surface-card border border-surface-border rounded-2xl p-6 sm:p-8 space-y-6 shadow-2xl text-slate-300 font-sans">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between border-b border-surface-border pb-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-emerald-400 font-mono font-bold text-lg">⚡</span>
+                    <h3 class="text-lg font-semibold text-slate-100 font-mono">Gerador de CV Sob Medida (IA)</h3>
+                </div>
+                <button id="close-ai-modal" class="text-slate-500 hover:text-slate-300 font-mono text-xl p-1 transition-colors cursor-pointer" title="Fechar">&times;</button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="space-y-4">
+                <p class="text-xs text-slate-400 leading-relaxed font-light">
+                    Cole a descrição da vaga (Job Description) abaixo. O motor de IA analisará os requisitos e priorizará o currículo mantendo todas as conquistas e métricas verídicas.
+                </p>
+
+                <div class="space-y-2">
+                    <label for="job-description" class="block font-mono text-xs text-emerald-400 uppercase tracking-wider">// Job Description</label>
+                    <textarea id="job-description" rows="5" placeholder="Cole aqui a descrição da vaga..." class="w-full rounded-lg bg-surface border border-surface-border p-3 text-xs text-slate-200 font-mono placeholder:text-slate-600 focus:outline-none focus:border-emerald-500 transition-all resize-y"></textarea>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-3">
+                    <button id="generate-cv-btn" class="px-5 py-2.5 rounded-lg bg-emerald-500 text-slate-950 font-semibold text-xs hover:bg-emerald-400 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-md shadow-emerald-500/20 font-mono flex items-center gap-2 cursor-pointer">
+                        <span id="btn-spinner" class="hidden w-3.5 h-3.5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></span>
+                        <span id="btn-text">Gerar Currículo com IA</span>
+                    </button>
+                </div>
+
+                <!-- Status Area -->
+                <div id="ai-status" class="hidden p-3 rounded-lg text-xs font-mono"></div>
+
+                <!-- Preview Area -->
+                <div id="ai-preview-container" class="hidden space-y-3 pt-2 border-t border-surface-border">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h4 class="font-mono text-xs text-emerald-400 uppercase tracking-wider">// Preview do Resultado</h4>
+                        <div class="flex items-center gap-2">
+                            <button id="apply-cv-btn" class="px-3 py-1.5 rounded bg-slate-800 text-slate-200 hover:text-emerald-400 border border-surface-border text-xs font-mono transition-all cursor-pointer">
+                                👁️ Aplicar no Site
+                            </button>
+                            <button id="download-json-btn" class="px-3 py-1.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/20 text-xs font-mono transition-all cursor-pointer">
+                                ⬇️ Baixar JSON
+                            </button>
+                        </div>
+                    </div>
+                    <pre id="ai-preview" class="max-h-60 overflow-y-auto p-3 rounded-lg bg-surface border border-surface-border text-[11px] font-mono text-slate-300 leading-relaxed whitespace-pre-wrap"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Control
+        const openModalBtn = document.getElementById('open-ai-modal');
+        const closeModalBtn = document.getElementById('close-ai-modal');
+        const aiModal = document.getElementById('ai-modal');
+        const generateCvBtn = document.getElementById('generate-cv-btn');
+        const btnSpinner = document.getElementById('btn-spinner');
+        const btnText = document.getElementById('btn-text');
+        const jobDescInput = document.getElementById('job-description');
+        const aiStatus = document.getElementById('ai-status');
+        const aiPreviewContainer = document.getElementById('ai-preview-container');
+        const aiPreview = document.getElementById('ai-preview');
+        const downloadJsonBtn = document.getElementById('download-json-btn');
+        const applyCvBtn = document.getElementById('apply-cv-btn');
+
+        let lastGeneratedJson = null;
+
+        function showModal() {
+            aiModal.classList.remove('hidden');
+        }
+
+        function hideModal() {
+            aiModal.classList.add('hidden');
+        }
+
+        if (openModalBtn) openModalBtn.addEventListener('click', showModal);
+        if (closeModalBtn) closeModalBtn.addEventListener('click', hideModal);
+
+        aiModal.addEventListener('click', (e) => {
+            if (e.target === aiModal) hideModal();
+        });
+
+        // AI Generation Handler
+        generateCvBtn.addEventListener('click', async () => {
+            const jobDescription = jobDescInput.value.trim();
+
+            if (!jobDescription) {
+                aiStatus.className = 'p-3 rounded-lg text-xs font-mono bg-amber-500/10 border border-amber-500/20 text-amber-400';
+                aiStatus.textContent = '⚠️ Por favor, informe a descrição da vaga antes de gerar.';
+                aiStatus.classList.remove('hidden');
+                return;
+            }
+
+            // Set loading state
+            generateCvBtn.disabled = true;
+            btnSpinner.classList.remove('hidden');
+            btnText.textContent = 'Analisando Vaga & Otimizando...';
+            aiStatus.className = 'p-3 rounded-lg text-xs font-mono bg-slate-800 text-slate-300 border border-surface-border';
+            aiStatus.textContent = '⏳ Enviando requisição para a IA... Aguarde.';
+            aiStatus.classList.remove('hidden');
+            aiPreviewContainer.classList.add('hidden');
+
+            try {
+                const response = await fetch('/api/generate-cv', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ jobDescription })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.error || 'Erro ao gerar o currículo.');
+                }
+
+                lastGeneratedJson = data;
+                aiStatus.className = 'p-3 rounded-lg text-xs font-mono bg-emerald-500/10 border border-emerald-500/20 text-emerald-400';
+                aiStatus.textContent = '✅ Currículo otimizado com sucesso!';
+
+                // Display JSON preview
+                aiPreview.textContent = JSON.stringify(data, null, 2);
+                aiPreviewContainer.classList.remove('hidden');
+
+            } catch (err) {
+                aiStatus.className = 'p-3 rounded-lg text-xs font-mono bg-rose-500/10 border border-rose-500/20 text-rose-400';
+                aiStatus.textContent = `❌ ${err.message}`;
+            } finally {
+                generateCvBtn.disabled = false;
+                btnSpinner.classList.add('hidden');
+                btnText.textContent = 'Gerar Currículo com IA';
+            }
+        });
+
+        // Download JSON
+        downloadJsonBtn.addEventListener('click', () => {
+            if (!lastGeneratedJson) return;
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(lastGeneratedJson, null, 2));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "curriculo-mauricio-belusso-tailored.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        });
+
+        // Apply generated CV to page DOM
+        applyCvBtn.addEventListener('click', () => {
+            if (!lastGeneratedJson) return;
+            renderTailoredCvToDom(lastGeneratedJson);
+            hideModal();
+            alert('Currículo customizado aplicado ao site! Você pode visualizar as alterações na página.');
+        });
+
+        function renderTailoredCvToDom(data) {
+            if (!data) return;
+
+            // Update Summary
+            if (data.personal && data.personal.summary) {
+                const summaryElem = document.querySelector('#sobre p');
+                if (summaryElem) summaryElem.textContent = data.personal.summary;
+            }
+
+            // Update Highlights
+            if (Array.isArray(data.highlights)) {
+                const highlightsContainer = document.querySelector('#conquistas .grid');
+                if (highlightsContainer) {
+                    highlightsContainer.innerHTML = data.highlights.map(h => `
+                        <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-3 hover:border-slate-700 transition-all">
+                            <div class="flex items-center justify-between">
+                                <span class="font-mono text-xs text-emerald-400 font-semibold">${escapeHtml(h.metric)}</span>
+                                <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-slate-400">${escapeHtml(h.tag)}</span>
+                            </div>
+                            <h4 class="text-lg font-medium text-slate-100">${escapeHtml(h.title)}</h4>
+                            <p class="text-xs text-slate-400 leading-relaxed">${escapeHtml(h.description)}</p>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            // Update Experience
+            if (Array.isArray(data.experience)) {
+                const expContainer = document.querySelector('#experiencia .space-y-6');
+                if (expContainer) {
+                    expContainer.innerHTML = data.experience.map(exp => `
+                        <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-4">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-surface-border pb-4">
+                                <div>
+                                    <h4 class="text-lg font-bold text-slate-100">${escapeHtml(exp.company)}</h4>
+                                    <p class="text-xs font-mono text-emerald-400">${escapeHtml(exp.role)}</p>
+                                </div>
+                                <span class="text-xs font-mono text-slate-500">${escapeHtml(exp.period)}</span>
+                            </div>
+                            <ul class="text-xs text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
+                                ${(exp.achievements || []).map(a => `<li>${escapeHtml(a)}</li>`).join('')}
+                            </ul>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                ${(exp.stack || []).map(s => `<span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">${escapeHtml(s)}</span>`).join('')}
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            // Update Skills
+            if (Array.isArray(data.skills)) {
+                const skillsContainer = document.querySelector('#stack .grid');
+                if (skillsContainer) {
+                    skillsContainer.innerHTML = data.skills.map((s, idx) => {
+                        const badges = ['BE', 'CL', 'AI'];
+                        const badge = badges[idx % badges.length];
+                        return `
+                            <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-4">
+                                <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center font-mono text-emerald-400 font-bold">
+                                    ${badge}
+                                </div>
+                                <h4 class="font-medium text-slate-100">${escapeHtml(s.category)}</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">${escapeHtml(s.description)}</p>
+                                <div class="flex flex-wrap gap-2 pt-2">
+                                    ${(s.items || []).map(item => `<span class="px-2 py-1 text-[10px] font-mono rounded bg-slate-800 text-slate-300">${escapeHtml(item)}</span>`).join('')}
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+            }
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+    </script>
 
 </body>
 </html>

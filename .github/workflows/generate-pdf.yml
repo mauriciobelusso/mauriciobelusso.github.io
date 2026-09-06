@@ -1,0 +1,35 @@
+name: Generate PDF Resume
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'curriculo-mauricio-belusso.pdf'
+      - 'README.md'
+
+permissions:
+  contents: write
+
+jobs:
+  generate-pdf:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.55.1-noble
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci || npm install
+
+      - name: Render PDF
+        run: node scripts/render-pdf.js
+
+      - name: Commit and push updated PDF
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "docs: update curriculo-mauricio-belusso.pdf [skip ci]"
+          file_pattern: "curriculo-mauricio-belusso.pdf"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
