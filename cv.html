@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mauricio Belusso — Currículo</title>
+    <meta name="description" content="Currículo A4 de Mauricio Belusso.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #12141a;
+            --muted: #5c6170;
+            --rule: #d6d3cb;
+            --paper: #f7f6f2;
+            --accent: #0f766e;
+            --chip: #eceae4;
+            --screen-bg: #e4e1da;
+        }
+
+        @page {
+            size: A4;
+            margin: 12mm 14mm;
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+            font-size: 10pt;
+            line-height: 1.38;
+            color: var(--ink);
+            background: var(--screen-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover { color: var(--accent); }
+
+        .toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 20px;
+            background: rgba(247, 246, 242, 0.92);
+            border-bottom: 1px solid var(--rule);
+            backdrop-filter: blur(10px);
+        }
+
+        .toolbar a,
+        .toolbar button {
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .toolbar a { color: var(--muted); }
+
+        .toolbar button {
+            appearance: none;
+            border: 0;
+            border-radius: 8px;
+            padding: 8px 14px;
+            background: var(--ink);
+            color: #f7f6f2;
+            cursor: pointer;
+        }
+
+        .toolbar button:hover { background: #2a2e38; }
+
+        .sheet {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 28px auto 56px;
+            padding: 14mm 16mm 16mm;
+            background: var(--paper);
+            box-shadow: 0 22px 55px rgba(18, 20, 26, 0.12);
+        }
+
+        .cv-error {
+            color: #9a3412;
+            max-width: 40rem;
+        }
+
+        header.masthead {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 16px 24px;
+            padding-bottom: 12px;
+            border-bottom: 1.5px solid var(--ink);
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            margin: 0 0 4px;
+            font-size: 22pt;
+            font-weight: 700;
+            letter-spacing: -0.035em;
+            line-height: 1.05;
+        }
+
+        .role {
+            margin: 0;
+            font-size: 11pt;
+            font-weight: 500;
+            color: var(--accent);
+        }
+
+        .contacts {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: right;
+            font-size: 8.5pt;
+            line-height: 1.55;
+            color: var(--muted);
+        }
+
+        .summary {
+            margin: 0 0 16px;
+            font-size: 9.5pt;
+            color: #2c3038;
+            max-width: 100%;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 58mm;
+            gap: 0 8mm;
+            align-items: start;
+        }
+
+        h2 {
+            margin: 0 0 7px;
+            padding-bottom: 3px;
+            font-size: 8pt;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border-bottom: 1px solid var(--rule);
+        }
+
+        section + section { margin-top: 13px; }
+
+        .highlights {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .highlights li {
+            margin: 0 0 7px;
+            padding: 0;
+            break-inside: avoid;
+        }
+
+        .metric {
+            font-family: "JetBrains Mono", ui-monospace, monospace;
+            font-size: 8pt;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .highlights strong {
+            display: block;
+            font-size: 9.5pt;
+            font-weight: 600;
+        }
+
+        article.job {
+            break-inside: avoid;
+            margin: 0 0 11px;
+        }
+
+        article.job:last-child { margin-bottom: 0; }
+
+        .job-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: baseline;
+        }
+
+        .job-head h3 {
+            margin: 0;
+            font-size: 10.5pt;
+            font-weight: 650;
+        }
+
+        .job-head .company {
+            font-weight: 500;
+            color: var(--muted);
+        }
+
+        .period {
+            flex-shrink: 0;
+            font-family: "JetBrains Mono", ui-monospace, monospace;
+            font-size: 7.5pt;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+
+        .job ul {
+            margin: 4px 0 0;
+            padding-left: 1.1em;
+        }
+
+        .job li {
+            margin: 0 0 2px;
+            font-size: 9pt;
+            color: #2a2e36;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 5px;
+        }
+
+        .chip {
+            display: inline-block;
+            padding: 1px 6px;
+            border-radius: 999px;
+            background: var(--chip);
+            font-family: "JetBrains Mono", ui-monospace, monospace;
+            font-size: 7pt;
+            color: #3a3f4a;
+        }
+
+        .rail p,
+        .rail ul {
+            margin: 0;
+            font-size: 8.5pt;
+            color: #2a2e36;
+        }
+
+        .rail ul {
+            padding-left: 1.1em;
+        }
+
+        .skill-group + .skill-group { margin-top: 8px; }
+
+        .skill-group h3 {
+            margin: 0 0 3px;
+            font-size: 9pt;
+            font-weight: 600;
+        }
+
+        @media print {
+            body { background: var(--paper); }
+            .no-print { display: none !important; }
+            .sheet {
+                width: auto;
+                min-height: 0;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+            a { color: inherit; text-decoration: none; }
+        }
+
+        @media screen and (max-width: 860px) {
+            .sheet {
+                width: auto;
+                min-height: 0;
+                margin: 12px;
+                padding: 22px 18px 28px;
+            }
+
+            header.masthead,
+            .layout,
+            .job-head {
+                grid-template-columns: 1fr;
+                display: block;
+            }
+
+            .contacts { text-align: left; margin-top: 8px; }
+            .period { display: block; margin-top: 2px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="toolbar no-print">
+        <a href="./">← Portfólio</a>
+        <button type="button" id="print-btn">Imprimir / salvar PDF</button>
+    </div>
+
+    <main id="cv-root" class="sheet" aria-live="polite">
+        <p>Carregando currículo…</p>
+    </main>
+
+    <script>
+        function escapeHtml(str) {
+            if (str == null) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function displayUrl(url) {
+            return String(url || '').replace(/^https?:\/\//, '').replace(/\/$/, '');
+        }
+
+        function highlightMetrics(h) {
+            if (Array.isArray(h.metrics) && h.metrics.length) return h.metrics;
+            return h.metric != null ? [h.metric] : [];
+        }
+
+        function renderCv(data) {
+            const personal = data.personal || {};
+            const name = personal.name || 'Mauricio Belusso';
+            document.title = `${name} — Currículo`;
+
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription && personal.summary) {
+                metaDescription.setAttribute('content', personal.summary);
+            }
+
+            const contacts = [];
+            if (personal.location) {
+                contacts.push(`<li>${escapeHtml(personal.location)}</li>`);
+            }
+            if (personal.email) {
+                contacts.push(`<li><a href="mailto:${escapeHtml(personal.email)}">${escapeHtml(personal.email)}</a></li>`);
+            }
+            if (personal.linkedin) {
+                contacts.push(`<li><a href="${escapeHtml(personal.linkedin)}" target="_blank" rel="noopener noreferrer">${escapeHtml(displayUrl(personal.linkedin))}</a></li>`);
+            }
+            if (personal.github) {
+                contacts.push(`<li><a href="${escapeHtml(personal.github)}" target="_blank" rel="noopener noreferrer">${escapeHtml(displayUrl(personal.github))}</a></li>`);
+            }
+
+            const highlights = (data.highlights || []).map((h) => {
+                const metrics = highlightMetrics(h).filter(Boolean).map(escapeHtml).join(' · ');
+                return `<li>
+                    ${metrics ? `<span class="metric">${metrics}</span>` : ''}
+                    <strong>${escapeHtml(h.title)}</strong>
+                </li>`;
+            }).join('');
+
+            const jobs = (data.experience || []).map((exp) => {
+                const achievements = (exp.achievements || [])
+                    .map((a) => `<li>${escapeHtml(a)}</li>`)
+                    .join('');
+                const stack = (exp.stack || [])
+                    .map((s) => `<span class="chip">${escapeHtml(s)}</span>`)
+                    .join('');
+                return `<article class="job">
+                    <div class="job-head">
+                        <h3>${escapeHtml(exp.role)} <span class="company">· ${escapeHtml(exp.company)}</span></h3>
+                        <span class="period">${escapeHtml(exp.period)}</span>
+                    </div>
+                    <ul>${achievements}</ul>
+                    ${stack ? `<div class="chips">${stack}</div>` : ''}
+                </article>`;
+            }).join('');
+
+            const skills = (data.skills || []).map((s) => {
+                const items = (s.items || [])
+                    .map((item) => `<span class="chip">${escapeHtml(item)}</span>`)
+                    .join('');
+                return `<div class="skill-group">
+                    <h3>${escapeHtml(s.category)}</h3>
+                    <div class="chips">${items}</div>
+                </div>`;
+            }).join('');
+
+            const languages = Array.isArray(personal.languages)
+                ? personal.languages.map((lang) => `<li>${escapeHtml(lang.name)} (${escapeHtml(lang.level)})</li>`).join('')
+                : '';
+
+            const education = data.education && data.education.academic
+                ? `<p>${escapeHtml(data.education.academic)}</p>`
+                : '';
+
+            document.getElementById('cv-root').innerHTML = `
+                <header class="masthead">
+                    <div>
+                        <h1>${escapeHtml(name)}</h1>
+                        <p class="role">${escapeHtml(personal.title || '')}</p>
+                    </div>
+                    <ul class="contacts">${contacts.join('')}</ul>
+                </header>
+                ${personal.summary ? `<p class="summary">${escapeHtml(personal.summary)}</p>` : ''}
+                <div class="layout">
+                    <div>
+                        ${highlights ? `<section>
+                            <h2>Impacto</h2>
+                            <ul class="highlights">${highlights}</ul>
+                        </section>` : ''}
+                        ${jobs ? `<section>
+                            <h2>Experiência</h2>
+                            ${jobs}
+                        </section>` : ''}
+                    </div>
+                    <aside class="rail">
+                        ${skills ? `<section>
+                            <h2>Stack</h2>
+                            ${skills}
+                        </section>` : ''}
+                        ${education ? `<section>
+                            <h2>Formação</h2>
+                            ${education}
+                        </section>` : ''}
+                        ${languages ? `<section>
+                            <h2>Idiomas</h2>
+                            <ul>${languages}</ul>
+                        </section>` : ''}
+                    </aside>
+                </div>
+            `;
+        }
+
+        async function maybeAutoPrint() {
+            if (new URLSearchParams(location.search).get('print') !== '1') return;
+            try {
+                if (document.fonts && document.fonts.ready) {
+                    await document.fonts.ready;
+                }
+            } catch (_) { /* ignore */ }
+            window.print();
+        }
+
+        async function loadResume() {
+            const root = document.getElementById('cv-root');
+            try {
+                const response = await fetch('resume.json', { cache: 'no-cache' });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                renderCv(await response.json());
+                await maybeAutoPrint();
+            } catch (err) {
+                console.error('Failed to load resume.json', err);
+                root.innerHTML = '<p class="cv-error">Não foi possível carregar resume.json. Sirva o site via HTTP (ex.: GitHub Pages ou um servidor local).</p>';
+            }
+        }
+
+        document.getElementById('print-btn').addEventListener('click', () => window.print());
+        loadResume();
+    </script>
+</body>
+</html>

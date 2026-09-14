@@ -11,6 +11,10 @@ The static page (`index.html`) loads that file in the browser and renders every
 section (hero, highlights, experience, skills, education, languages). Edit
 `resume.json` and refresh — no build step.
 
+[`cv.html`](cv.html) is the A4 / print view of the same JSON (Imprimir → Salvar
+como PDF). The portfolio hero links to `cv.html?print=1` to open the native
+print dialog.
+
 Schema outline:
 
 - `personal` — name, title, summary, availability, restricted contact copy, contacts, languages
