@@ -70,7 +70,7 @@
 
         .toolbar a { color: var(--muted); }
 
-        .toolbar button {
+        .toolbar #print-btn {
             appearance: none;
             border: 0;
             border-radius: 8px;
@@ -80,7 +80,37 @@
             cursor: pointer;
         }
 
-        .toolbar button:hover { background: #2a2e38; }
+        .toolbar #print-btn:hover { background: #2a2e38; }
+
+        .toolbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 1px;
+            font-family: "JetBrains Mono", ui-monospace, monospace;
+            font-size: 11px;
+            letter-spacing: 0.04em;
+        }
+
+        .lang-btn {
+            appearance: none;
+            background: transparent;
+            border: 0;
+            padding: 4px 6px;
+            color: var(--muted);
+            cursor: pointer;
+            border-radius: 4px;
+            font: inherit;
+        }
+
+        .lang-btn:hover { color: var(--ink); }
+        .lang-btn.is-active { color: var(--accent); font-weight: 600; }
+        .lang-sep { color: var(--rule); padding: 0 1px; }
 
         .sheet {
             width: 210mm;
@@ -297,15 +327,21 @@
 </head>
 <body>
     <div class="toolbar no-print">
-        <a href="./">← Portfólio</a>
-        <button type="button" id="print-btn">Imprimir / salvar PDF</button>
+        <a id="cv-back" href="./">← Portfólio</a>
+        <div class="toolbar-actions">
+            <div id="lang-switcher" class="lang-switcher" role="group" aria-label="Selecionar idioma"></div>
+            <button type="button" id="print-btn">Imprimir / salvar PDF</button>
+        </div>
     </div>
 
     <main id="cv-root" class="sheet" aria-live="polite">
         <p>Carregando currículo…</p>
     </main>
 
+    <script src="js/i18n.js"></script>
     <script>
+        let currentLang = ResumeI18n.detectLang();
+
         function escapeHtml(str) {
             if (str == null) return '';
             return String(str)
@@ -325,10 +361,23 @@
             return h.metric != null ? [h.metric] : [];
         }
 
-        function renderCv(data) {
+        function renderCv(data, lang) {
             const personal = data.personal || {};
+            const ui = data.ui || {};
             const name = personal.name || 'Mauricio Belusso';
-            document.title = `${name} — Currículo`;
+            document.title = `${name} — ${ui.cvTitleSuffix || 'Currículo'}`;
+
+            const backLink = document.getElementById('cv-back');
+            if (backLink) {
+                backLink.textContent = ui.cvBack || '← Portfólio';
+                backLink.setAttribute('href', ResumeI18n.portfolioUrl(lang));
+            }
+            const printBtn = document.getElementById('print-btn');
+            if (printBtn && ui.cvPrint) printBtn.textContent = ui.cvPrint;
+            const switcher = document.getElementById('lang-switcher');
+            if (switcher && ui.langSwitcherAria) {
+                switcher.setAttribute('aria-label', ui.langSwitcherAria);
+            }
 
             const metaDescription = document.querySelector('meta[name="description"]');
             if (metaDescription && personal.summary) {
@@ -404,25 +453,25 @@
                 <div class="layout">
                     <div>
                         ${highlights ? `<section>
-                            <h2>Impacto</h2>
+                            <h2>${escapeHtml(ui.cvImpact || 'Impacto')}</h2>
                             <ul class="highlights">${highlights}</ul>
                         </section>` : ''}
                         ${jobs ? `<section>
-                            <h2>Experiência</h2>
+                            <h2>${escapeHtml(ui.cvExperience || 'Experiência')}</h2>
                             ${jobs}
                         </section>` : ''}
                     </div>
                     <aside class="rail">
                         ${skills ? `<section>
-                            <h2>Stack</h2>
+                            <h2>${escapeHtml(ui.cvStack || 'Stack')}</h2>
                             ${skills}
                         </section>` : ''}
                         ${education ? `<section>
-                            <h2>Formação</h2>
+                            <h2>${escapeHtml(ui.cvEducation || 'Formação')}</h2>
                             ${education}
                         </section>` : ''}
                         ${languages ? `<section>
-                            <h2>Idiomas</h2>
+                            <h2>${escapeHtml(ui.cvLanguages || 'Idiomas')}</h2>
                             <ul>${languages}</ul>
                         </section>` : ''}
                     </aside>
@@ -440,21 +489,28 @@
             window.print();
         }
 
-        async function loadResume() {
+        async function loadResume(lang, options) {
             const root = document.getElementById('cv-root');
+            const autoPrint = Boolean(options && options.autoPrint);
+            currentLang = ResumeI18n.persistLang(lang);
+            ResumeI18n.renderLangSwitcher(
+                document.getElementById('lang-switcher'),
+                currentLang,
+                (nextLang) => loadResume(nextLang, { autoPrint: false })
+            );
+
             try {
-                const response = await fetch('resume.json', { cache: 'no-cache' });
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                renderCv(await response.json());
-                await maybeAutoPrint();
+                const data = await ResumeI18n.loadResumeJson(currentLang);
+                renderCv(data, currentLang);
+                if (autoPrint) await maybeAutoPrint();
             } catch (err) {
                 console.error('Failed to load resume.json', err);
-                root.innerHTML = '<p class="cv-error">Não foi possível carregar resume.json. Sirva o site via HTTP (ex.: GitHub Pages ou um servidor local).</p>';
+                root.innerHTML = '<p class="cv-error">Não foi possível carregar o currículo. Sirva o site via HTTP (ex.: GitHub Pages ou um servidor local).</p>';
             }
         }
 
         document.getElementById('print-btn').addEventListener('click', () => window.print());
-        loadResume();
+        loadResume(currentLang, { autoPrint: true });
     </script>
 </body>
 </html>

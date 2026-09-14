@@ -47,27 +47,54 @@
                 padding-bottom: 1rem !important;
             }
         }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 1px;
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 11px;
+            letter-spacing: 0.04em;
+        }
+
+        .lang-btn {
+            appearance: none;
+            background: transparent;
+            border: 0;
+            padding: 4px 6px;
+            color: #64748b;
+            cursor: pointer;
+            border-radius: 4px;
+            font: inherit;
+        }
+
+        .lang-btn:hover { color: #e2e8f0; }
+        .lang-btn.is-active { color: #34d399; }
+        .lang-sep { color: #334155; padding: 0 1px; }
     </style>
 </head>
 <body class="bg-surface text-slate-300 font-sans antialiased selection:bg-emerald-500/20 selection:text-emerald-400">
 
     <!-- Header / Navbar -->
     <header class="fixed top-0 w-full z-50 bg-surface/85 backdrop-blur-md border-b border-surface-border no-print">
-        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#" class="font-mono text-sm font-medium text-slate-100 hover:text-emerald-400 transition-colors">
+        <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+            <a href="#" class="font-mono text-sm font-medium text-slate-100 hover:text-emerald-400 transition-colors shrink-0">
                 <span class="text-emerald-500">&gt;</span> mauricio.belusso()
             </a>
-            
-            <nav class="hidden md:flex items-center space-x-8 text-xs font-mono">
-                <a href="#sobre" class="hover:text-slate-100 transition-colors">// sobre</a>
-                <a href="#conquistas" class="hover:text-slate-100 transition-colors">// conquistas</a>
-                <a href="#experiencia" class="hover:text-slate-100 transition-colors">// experiencia</a>
-                <a href="#stack" class="hover:text-slate-100 transition-colors">// stack</a>
-                <a href="#formacao" class="hover:text-slate-100 transition-colors">// formacao</a>
-                <a id="nav-contact" href="#contato" class="px-3 py-1.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-all">
-                    canal_tecnico()
-                </a>
-            </nav>
+
+            <div class="flex items-center gap-4 sm:gap-6">
+                <nav class="hidden md:flex items-center space-x-8 text-xs font-mono">
+                    <a id="nav-about" href="#sobre" class="hover:text-slate-100 transition-colors">// sobre</a>
+                    <a id="nav-highlights" href="#conquistas" class="hover:text-slate-100 transition-colors">// conquistas</a>
+                    <a id="nav-experience" href="#experiencia" class="hover:text-slate-100 transition-colors">// experiencia</a>
+                    <a id="nav-stack" href="#stack" class="hover:text-slate-100 transition-colors">// stack</a>
+                    <a id="nav-education" href="#formacao" class="hover:text-slate-100 transition-colors">// formacao</a>
+                    <a id="nav-contact" href="#contato" class="px-3 py-1.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:bg-emerald-500/20 transition-all">
+                        canal_tecnico()
+                    </a>
+                </nav>
+                <div id="lang-switcher" class="lang-switcher" role="group" aria-label="Selecionar idioma"></div>
+            </div>
         </div>
     </header>
 
@@ -110,8 +137,8 @@
         <!-- Metrics & FinOps Highlights -->
         <section id="conquistas" class="space-y-8">
             <div class="space-y-2">
-                <h2 class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Impacto Measurable & FinOps</h2>
-                <h3 class="text-2xl font-semibold text-slate-100">Resultados de Engenharia em Produção</h3>
+                <h2 id="highlights-kicker" class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Impacto Measurable & FinOps</h2>
+                <h3 id="highlights-title" class="text-2xl font-semibold text-slate-100">Resultados de Engenharia em Produção</h3>
             </div>
 
             <div id="highlights-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
@@ -120,8 +147,8 @@
         <!-- Professional Experience -->
         <section id="experiencia" class="space-y-8">
             <div class="space-y-2">
-                <h2 class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Carreira & Histórico</h2>
-                <h3 class="text-2xl font-semibold text-slate-100">Trajetória Profissional</h3>
+                <h2 id="experience-kicker" class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Carreira & Histórico</h2>
+                <h3 id="experience-title" class="text-2xl font-semibold text-slate-100">Trajetória Profissional</h3>
             </div>
 
             <div id="experience-list" class="space-y-6"></div>
@@ -130,8 +157,8 @@
         <!-- Tech Stack Matrix -->
         <section id="stack" class="space-y-8">
             <div class="space-y-2">
-                <h2 class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Stack & Habilidades</h2>
-                <h3 class="text-2xl font-semibold text-slate-100">Domínio Técnico</h3>
+                <h2 id="skills-kicker" class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Stack & Habilidades</h2>
+                <h3 id="skills-title" class="text-2xl font-semibold text-slate-100">Domínio Técnico</h3>
             </div>
 
             <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
@@ -140,18 +167,18 @@
         <!-- Education & Certifications -->
         <section id="formacao" class="space-y-8">
             <div class="space-y-2">
-                <h2 class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Formação & Desenvolvimento Contínuo</h2>
-                <h3 class="text-2xl font-semibold text-slate-100">Educação e Qualificações</h3>
+                <h2 id="education-kicker" class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Formação & Desenvolvimento Contínuo</h2>
+                <h3 id="education-title" class="text-2xl font-semibold text-slate-100">Educação e Qualificações</h3>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-3">
-                    <h4 class="font-medium text-slate-100">Formação Acadêmica</h4>
+                    <h4 id="education-academic-label" class="font-medium text-slate-100">Formação Acadêmica</h4>
                     <p id="education-academic" class="text-xs text-slate-400 leading-relaxed"></p>
                 </div>
 
                 <div class="p-6 rounded-xl bg-surface-card border border-surface-border space-y-3">
-                    <h4 class="font-medium text-slate-100">Idiomas</h4>
+                    <h4 id="languages-label" class="font-medium text-slate-100">Idiomas</h4>
                     <ul id="languages-list" class="text-xs text-slate-400 space-y-1 list-disc list-inside leading-relaxed"></ul>
                 </div>
             </div>
@@ -159,12 +186,12 @@
 
         <!-- Contact Section -->
         <section id="contato" class="p-8 sm:p-12 rounded-2xl bg-gradient-to-b from-surface-card to-surface border border-surface-border text-center space-y-6">
-            <p class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Canal restrito</p>
+            <p id="contact-kicker" class="font-mono text-xs text-emerald-400 uppercase tracking-widest">// Canal restrito</p>
             <h2 id="contact-headline" class="text-2xl sm:text-3xl font-bold text-slate-100">O canal é restrito de propósito.</h2>
             <p id="contact-body" class="text-slate-400 text-sm max-w-2xl mx-auto leading-relaxed">
                 Estou imerso em problemas complexos de arquitetura e escalabilidade. Conversas aqui se limitam a arquitetura, trocas técnicas de alto nível ou projetos de impacto crítico. Comprometimento exclusivo não se desloca por uma vaga comum: exige um desafio técnico fora do comum e uma cultura de engenharia extremamente séria.
             </p>
-            <p class="font-mono text-[11px] text-slate-500 tracking-wide">Arquitetura · Trocas técnicas de alto nível · Impacto crítico</p>
+            <p id="contact-tags" class="font-mono text-[11px] text-slate-500 tracking-wide">Arquitetura · Trocas técnicas de alto nível · Impacto crítico</p>
             <div class="pt-2 flex flex-wrap justify-center gap-4">
                 <a id="contact-email" href="mailto:mauriciobelusso@gmail.com?subject=Arquitetura%2C%20escala%20ou%20projeto%20de%20impacto%20cr%C3%ADtico" class="px-6 py-3 rounded-lg bg-emerald-500 text-slate-950 font-semibold text-sm hover:bg-emerald-400 transition-all">
                     Conversar sobre arquitetura
@@ -182,11 +209,13 @@
 
     <!-- Footer -->
     <footer class="border-t border-surface-border py-8 text-center font-mono text-xs text-slate-600 no-print">
-        <p>&copy; 2026 Mauricio Belusso. Projetado com foco em alta performance e código limpo. Dados em <code class="text-slate-500">resume.json</code>.</p>
+        <p id="footer-copy">&copy; 2026 Mauricio Belusso. Projetado com foco em alta performance e código limpo. Dados em <code class="text-slate-500">locales/pt-BR/resume.json</code>.</p>
     </footer>
 
+    <script src="js/i18n.js"></script>
     <script>
         const SKILL_BADGES = ['BE', 'CL', 'AI'];
+        let currentLang = ResumeI18n.detectLang();
 
         function escapeHtml(str) {
             if (str == null) return '';
@@ -208,10 +237,57 @@
             if (el && value) el.setAttribute('href', value);
         }
 
-        function renderResume(data) {
-            const personal = data.personal || {};
+        function formatUi(template, lang) {
+            return String(template || '')
+                .replaceAll('{year}', String(new Date().getFullYear()))
+                .replaceAll('{lang}', lang);
+        }
 
-            document.title = `${personal.name || 'Mauricio Belusso'} | ${personal.title || 'Currículo'}`;
+        function applyChrome(ui, lang) {
+            setText('nav-about', ui.navAbout);
+            setText('nav-highlights', ui.navHighlights);
+            setText('nav-experience', ui.navExperience);
+            setText('nav-stack', ui.navStack);
+            setText('nav-education', ui.navEducation);
+            setText('nav-contact', ui.navContact);
+            setText('cta-github', ui.ctaGithub);
+            setText('cta-linkedin', ui.ctaLinkedin);
+            setText('cta-cv', ui.ctaCv);
+            setText('contact-github', ui.ctaGithubShort);
+            setText('contact-linkedin', ui.ctaLinkedinShort);
+            setText('highlights-kicker', ui.highlightsKicker);
+            setText('highlights-title', ui.highlightsTitle);
+            setText('experience-kicker', ui.experienceKicker);
+            setText('experience-title', ui.experienceTitle);
+            setText('skills-kicker', ui.skillsKicker);
+            setText('skills-title', ui.skillsTitle);
+            setText('education-kicker', ui.educationKicker);
+            setText('education-title', ui.educationTitle);
+            setText('education-academic-label', ui.educationAcademicLabel);
+            setText('languages-label', ui.languagesLabel);
+            setText('contact-kicker', ui.contactKicker);
+            setText('contact-tags', ui.contactTags);
+
+            const footer = document.getElementById('footer-copy');
+            if (footer && ui.footer) {
+                footer.textContent = formatUi(ui.footer, lang);
+            }
+
+            const switcher = document.getElementById('lang-switcher');
+            if (switcher && ui.langSwitcherAria) {
+                switcher.setAttribute('aria-label', ui.langSwitcherAria);
+            }
+
+            setHref('cta-cv', ResumeI18n.cvUrl(lang, true));
+        }
+
+        function renderResume(data, lang) {
+            const personal = data.personal || {};
+            const ui = data.ui || {};
+
+            applyChrome(ui, lang);
+
+            document.title = `${personal.name || 'Mauricio Belusso'} | ${personal.title || ui.cvTitleSuffix || 'Currículo'}`;
 
             const metaDescription = document.querySelector('meta[name="description"]');
             if (metaDescription && personal.summary) {
@@ -225,12 +301,12 @@
             setText('contact-headline', personal.contactHeadline);
             setText('contact-body', personal.contactBody);
 
-            const contactLabel = personal.contactCta || 'Conversar sobre arquitetura';
+            const contactLabel = personal.contactCta || ui.ctaCv;
             setText('cta-email', contactLabel);
             setText('contact-email', contactLabel);
 
             if (personal.email) {
-                const subject = encodeURIComponent('Arquitetura, escala ou projeto de impacto crítico');
+                const subject = encodeURIComponent(ui.emailSubject || '');
                 const mail = `mailto:${personal.email}?subject=${subject}`;
                 setHref('cta-email', mail);
                 setHref('contact-email', mail);
@@ -307,26 +383,29 @@
             const languagesList = document.getElementById('languages-list');
             if (languagesList && Array.isArray(personal.languages)) {
                 languagesList.innerHTML = personal.languages
-                    .map((lang) => `<li>${escapeHtml(lang.name)} (${escapeHtml(lang.level)})</li>`)
+                    .map((item) => `<li>${escapeHtml(item.name)} (${escapeHtml(item.level)})</li>`)
                     .join('');
             }
         }
 
-        async function loadResume() {
+        async function loadResume(lang) {
+            currentLang = ResumeI18n.persistLang(lang);
+            ResumeI18n.renderLangSwitcher(
+                document.getElementById('lang-switcher'),
+                currentLang,
+                loadResume
+            );
+
             try {
-                const response = await fetch('resume.json', { cache: 'no-cache' });
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-                const data = await response.json();
-                renderResume(data);
+                const data = await ResumeI18n.loadResumeJson(currentLang);
+                renderResume(data, currentLang);
             } catch (err) {
                 console.error('Failed to load resume.json', err);
-                setText('personal-summary', 'Não foi possível carregar resume.json. Sirva o site via HTTP (ex.: GitHub Pages ou um servidor local).');
+                setText('personal-summary', 'Não foi possível carregar o currículo. Sirva o site via HTTP (ex.: GitHub Pages ou um servidor local).');
             }
         }
 
-        loadResume();
+        loadResume(currentLang);
     </script>
 
 </body>
