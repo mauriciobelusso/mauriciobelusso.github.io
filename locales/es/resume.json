@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "lang": "es"
+  },
+  "ui": {
+    "navAbout": "// sobre",
+    "navHighlights": "// logros",
+    "navExperience": "// experiencia",
+    "navStack": "// stack",
+    "navEducation": "// formacion",
+    "navContact": "canal_tecnico()",
+    "ctaGithub": "Perfil de GitHub →",
+    "ctaLinkedin": "Perfil de LinkedIn →",
+    "ctaCv": "Descargar currículum (A4)",
+    "ctaGithubShort": "Perfil de GitHub",
+    "ctaLinkedinShort": "Perfil de LinkedIn",
+    "highlightsKicker": "// Impacto Medible & FinOps",
+    "highlightsTitle": "Resultados de Ingeniería en Producción",
+    "experienceKicker": "// Carrera e Historial",
+    "experienceTitle": "Trayectoria Profesional",
+    "skillsKicker": "// Stack y Habilidades",
+    "skillsTitle": "Dominio Técnico",
+    "educationKicker": "// Formación y Desarrollo Continuo",
+    "educationTitle": "Educación y Cualificaciones",
+    "educationAcademicLabel": "Formación Académica",
+    "languagesLabel": "Idiomas",
+    "contactKicker": "// Canal restringido",
+    "contactTags": "Arquitectura · Intercambios técnicos de alto nivel · Impacto crítico",
+    "footer": "© {year} Mauricio Belusso. Diseñado con foco en alto rendimiento y código limpio. Datos en locales/{lang}/resume.json.",
+    "loading": "Cargando…",
+    "loadingResume": "Cargando currículum…",
+    "loadError": "No fue posible cargar el currículum. Sirva el sitio por HTTP (p. ej. GitHub Pages o un servidor local).",
+    "emailSubject": "Arquitectura, escala o un proyecto de impacto crítico",
+    "langSwitcherAria": "Seleccionar idioma",
+    "cvBack": "← Portafolio",
+    "cvPrint": "Imprimir / guardar PDF",
+    "cvTitleSuffix": "Currículum",
+    "cvImpact": "Impacto",
+    "cvExperience": "Experiencia",
+    "cvStack": "Stack",
+    "cvEducation": "Formación",
+    "cvLanguages": "Idiomas"
+  },
+  "personal": {
+    "name": "Mauricio Belusso",
+    "title": "Arquitectura y escala",
+    "summary": "Construcción, optimización y evolución de sistemas de alta concurrencia y procesamiento masivo en la nube. Trabajo principalmente en Java y AWS, con pragmatismo técnico, FinOps e ingeniería asistida por IA — sin renunciar al rigor arquitectónico.",
+    "availability": "Enfoque total en arquitectura y escalabilidad",
+    "contactHeadline": "El canal es restringido a propósito.",
+    "contactBody": "Estoy inmerso en problemas complejos de arquitectura y escalabilidad. Las conversaciones aquí se limitan a arquitectura, intercambios técnicos de alto nivel o proyectos de impacto crítico. El compromiso exclusivo no se desplaza por un puesto común: exige un desafío técnico fuera de lo común y una cultura de ingeniería extremadamente seria.",
+    "contactCta": "Hablar sobre arquitectura",
+    "email": "mauriciobelusso@gmail.com",
+    "github": "https://github.com/mauriciobelusso",
+    "linkedin": "https://www.linkedin.com/in/mauriciobelusso",
+    "location": "Brasil",
+    "languages": [
+      {
+        "name": "Portugués",
+        "level": "Nativo"
+      },
+      {
+        "name": "Inglés",
+        "level": "Competencia profesional"
+      }
+    ]
+  },
+  "highlights": [
+    {
+      "metric": "-85% Costos AWS EKS",
+      "tag": "Troubleshooting & Memory Leak",
+      "title": "Optimización de API Transaccional de Alta Frecuencia",
+      "description": "Diagnostiqué y corregí una fuga de memoria crítica en un endpoint expuesto a robots de automatización. Reduje la infraestructura necesaria de 12 pods (3GB RAM cada uno) a solo 1-2 pods (1.5GB RAM), eliminando caídas por Out-of-Memory (OOM) en producción."
+    },
+    {
+      "metric": "300k Registros / Batch",
+      "tag": "Restricción de Crédito",
+      "title": "Procesamiento por Lotes de Alta Escalabilidad",
+      "description": "Arquitecté flujos escalables para anotación y conciliación de crédito privado (PEFIN, REFIN y CONVEM) procesando hasta 300 mil CPF/CNPJ en una sola ejecución sin impacto en la disponibilidad."
+    },
+    {
+      "metric": "100 mcores → 30 mcores",
+      "metrics": ["100 mcores → 30 mcores", "1,3 GB → 900 MB"],
+      "tag": "Virtual Threads (Loom)",
+      "title": "Migración y Concurrencia de Punta (Java 25 LTS)",
+      "description": "Conduje la modernización de microservicios de Java 8 a 25 LTS. Adopté Virtual Threads reduciendo en 70% el consumo medio de CPU y la memoria de 1,3 GB a 900 MB — nivel mantenido bajo alta carga — y mitigando bloqueos de hilos físicos (carrier thread pinning) en bloques sincronizados."
+    },
+    {
+      "metric": "Semanas → Instantáneo",
+      "tag": "Autonomía Operativa",
+      "title": "Motor Dinámico de Sustitución de Variables",
+      "description": "Desarrollé un motor de renderizado de documentos de notificación que eliminó la necesidad de codificación/despliegues para nuevos layouts, otorgando autonomía total al equipo operativo para crear plantillas ilimitadas."
+    }
+  ],
+  "experience": [
+    {
+      "company": "Verx Tecnologia e Inovação",
+      "role": "Ingeniero de Software Java Sénior",
+      "period": "Ene 2025 – Presente",
+      "achievements": [
+        "Liderazgo en la reducción del 85% del costo de infraestructura de una API crítica en AWS EKS.",
+        "Arquitectura de soluciones batch para el procesamiento masivo de registros de restricción de crédito.",
+        "Migración continua del ecosistema de microservicios hasta Java 25 LTS con Virtual Threads, reduciendo CPU de 100 a 30 mcores y memoria de 1,3 GB a 900 MB incluso bajo alta carga.",
+        "Tuning de base de datos NoSQL (MongoDB), análisis de explain plans y aplicación de índices vía Mongock sin bloqueos de deploy."
+      ],
+      "stack": ["Java 25", "Spring Boot", "AWS EKS", "MongoDB", "Mongock"]
+    },
+    {
+      "company": "Softfocus",
+      "role": "Desarrollador Web",
+      "period": "Nov 2023 – Nov 2024",
+      "achievements": [
+        "Reducción de más del 60% de los defectos en producción y 70% de simplificación estructural del código.",
+        "Modernización de un legado Struts mediante la creación de un framework personalizado de Inyección de Dependencias por anotaciones.",
+        "Integración directa con grandes bancos y cooperativas de crédito, conectando sistemas al BACEN vía APIs REST seguras."
+      ],
+      "stack": ["Java", "Struts", "PostgreSQL", "Docker"]
+    },
+    {
+      "company": "Mirante Tecnologia",
+      "role": "Desarrollador Web · Precursor del Proyecto",
+      "period": "Mar 2023 – Nov 2023",
+      "achievements": [
+        "Ideador y precursor del proyecto de automatización de edictos para el INCRA, definiendo desde cero el stack tecnológico y la arquitectura de la solución.",
+        "Desarrollo del módulo de generación automatizada de edictos, eliminando procesos manuales y reduciendo el tiempo de elaboración.",
+        "Implementación de firma digital de edictos con certificado digital para el equipo interno.",
+        "Integración con gov.br permitiendo que los candidatos se autenticaran y se inscribieran directamente en los edictos.",
+        "Estructuración del pipeline de CI/CD en GitLab, automatizando build, pruebas y deploys del proyecto desde su concepción."
+      ],
+      "stack": ["Java", "GitLab CI/CD", "gov.br", "Certificado Digital"]
+    },
+    {
+      "company": "OSF Digital",
+      "role": "Desarrollador Web · SRE",
+      "period": "May 2022 – Mar 2023",
+      "achievements": [
+        "Actuación en el proyecto SuperApp Porto Seguro junto a los equipos de Innovación y SRE.",
+        "Gestión de CI/CD para más de 70 microservicios Java, reduciendo el tiempo de deploy de 20 a 8 minutos.",
+        "Estructuración de observabilidad en la nube con ELK Stack (Kibana), OpenSearch, AWS CloudWatch y AppDynamics.",
+        "Implementación de identificación de dispositivos de acceso a las APIs a partir del análisis del User-Agent de aplicaciones y navegadores, permitiendo un monitoreo y troubleshooting más precisos por canal de origen."
+      ],
+      "stack": ["Java", "Kibana", "OpenSearch", "AWS CloudWatch", "AppDynamics"]
+    },
+    {
+      "company": "VIASOFT",
+      "role": "Desarrollador Web · Tech Lead · Scrum Master",
+      "period": "Jul 2019 – Abr 2022",
+      "achievements": [
+        "Integración del sistema legado (Delphi) con un microservicio REST stateless en Java/Spring Boot para viabilizar el funcionamiento con la aplicación Android.",
+        "Transición de carrera del desarrollo Desktop a Web, asumiendo como dueño técnico el producto Sales Platform Web y evolucionándolo de forma continua según las demandas del mercado, conviviendo con la versión Desktop ya existente.",
+        "Actuación como Tech Lead y Scrum Master del equipo, conduciendo ceremonias ágiles y definiendo estándares técnicos y de code review.",
+        "Implantación de un pipeline de integración y entrega continua (CI/CD) utilizando Jenkins, automatizando builds y deploys de la plataforma.",
+        "Viaje técnico al cliente para levantamiento de requisitos, soporte a la implantación y alineación directa con stakeholders de negocio."
+      ],
+      "stack": ["Java", "Spring Boot", "Delphi", "Android", "Jenkins", "Scrum"]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Lenguajes y Backend",
+      "description": "Especialista en el ecosistema Java moderno y la concurrencia avanzada.",
+      "items": ["Java (8 a 25 LTS)", "Spring Boot", "Virtual Threads", "Hibernate"]
+    },
+    {
+      "category": "Cloud, DevOps y FinOps",
+      "description": "Infraestructura como código, contenedorización y optimización de costos en la nube.",
+      "items": ["AWS (EKS, S3, CloudWatch)", "Docker", "Terraform", "Jenkins / GitLab CI"]
+    },
+    {
+      "category": "IA y Observabilidad",
+      "description": "Ingeniería asistida por IA y monitoreo en tiempo real de microservicios.",
+      "items": ["Claude Code / Copilot", "ELK / Kibana", "OpenSearch", "AppDynamics", "MongoDB / PostgreSQL"]
+    }
+  ],
+  "education": {
+    "academic": "Tecnólogo en Análisis y Desarrollo de Sistemas — UNINTER (2022 – 2023)"
+  }
+}
