@@ -1,7 +1,8 @@
 # mauriciobelusso.github.io
 
 Source code for my personal portfolio and CV, published at
-[mauriciobelusso.github.io](https://mauriciobelusso.github.io).
+[mauriciobelusso.dev](https://mauriciobelusso.dev) (custom domain, served via
+GitHub Pages).
 
 ## Resume-as-Code
 
@@ -50,6 +51,12 @@ Configure GitHub Pages to deploy from the **branch** containing this repository
 and the repository **root** (`/`) as the folder. The root `index.html` is served
 directly; `.nojekyll` prevents Jekyll processing. Locale files under `locales/`
 are served as static assets next to the page.
+
+The [`CNAME`](CNAME) file maps the custom domain `mauriciobelusso.dev` to this
+GitHub Pages deployment. DNS for the domain must point to GitHub Pages (see
+[GitHub's custom domain docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)),
+and the "Enforce HTTPS" option should stay enabled in the repository's Pages
+settings once the certificate is issued.
 
 ## License
 
