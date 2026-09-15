@@ -1,7 +1,7 @@
 # mauriciobelusso.github.io
 
 Source code for my personal portfolio and CV, published at
-[mauriciobelusso.github.io](https://mauriciobelusso.github.io).
+[mauriciobelusso.dev](https://mauriciobelusso.dev).
 
 ## Resume-as-Code
 
