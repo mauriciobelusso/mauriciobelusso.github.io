@@ -88,6 +88,22 @@
             gap: 14px;
         }
 
+        .mobile-hint {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            margin: 12px 20px 0;
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: #fff4e5;
+            border: 1px solid #f0c987;
+            color: #7a4b06;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .mobile-hint.is-visible { display: flex; }
+
         .lang-switcher {
             display: flex;
             align-items: center;
@@ -333,6 +349,7 @@
             <button type="button" id="print-btn">Imprimir / salvar PDF</button>
         </div>
     </div>
+    <p id="mobile-hint" class="mobile-hint no-print" role="status" hidden></p>
 
     <main id="cv-root" class="sheet" aria-live="polite">
         <p>Carregando currículo…</p>
@@ -341,6 +358,17 @@
     <script src="js/i18n.js"></script>
     <script>
         let currentLang = ResumeI18n.detectLang();
+        let currentUi = {};
+
+        function isLikelyMobileDevice() {
+            const ua = navigator.userAgent || '';
+            if (/Android|iPhone|iPad|iPod|Mobi/i.test(ua)) return true;
+            try {
+                return window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+            } catch (_) {
+                return false;
+            }
+        }
 
         function escapeHtml(str) {
             if (str == null) return '';
@@ -374,6 +402,7 @@
             }
             const printBtn = document.getElementById('print-btn');
             if (printBtn && ui.cvPrint) printBtn.textContent = ui.cvPrint;
+            currentUi = ui;
             const switcher = document.getElementById('lang-switcher');
             if (switcher && ui.langSwitcherAria) {
                 switcher.setAttribute('aria-label', ui.langSwitcherAria);
@@ -479,8 +508,29 @@
             `;
         }
 
+        function showMobilePrintHint() {
+            const hint = document.getElementById('mobile-hint');
+            const printBtn = document.getElementById('print-btn');
+            if (!hint) return;
+            hint.textContent = currentUi.cvMobileHint
+                || 'Toque em "Imprimir / salvar PDF" abaixo para gerar o arquivo. Em alguns celulares, o download automático pode gerar um arquivo vazio.';
+            hint.hidden = false;
+            hint.classList.add('is-visible');
+            if (printBtn) printBtn.focus();
+        }
+
         async function maybeAutoPrint() {
             if (new URLSearchParams(location.search).get('print') !== '1') return;
+
+            // On mobile devices, window.print() triggered here (after async work)
+            // can lose the user-activation gesture and silently produce an empty
+            // (0-byte) PDF. Ask the user to tap the print button directly instead,
+            // which keeps a fresh, direct user gesture on the print call.
+            if (isLikelyMobileDevice()) {
+                showMobilePrintHint();
+                return;
+            }
+
             try {
                 if (document.fonts && document.fonts.ready) {
                     await document.fonts.ready;

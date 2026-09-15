@@ -39,7 +39,8 @@
     "cvExperience": "Experiencia",
     "cvStack": "Stack",
     "cvEducation": "Formación",
-    "cvLanguages": "Idiomas"
+    "cvLanguages": "Idiomas",
+    "cvMobileHint": "Toca \"Imprimir / guardar PDF\" abajo para generar el archivo. En algunos móviles, la descarga automática puede generar un archivo vacío (0 KB)."
   },
   "personal": {
     "name": "Mauricio Belusso",
