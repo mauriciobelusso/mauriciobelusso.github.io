@@ -43,8 +43,8 @@
   },
   "personal": {
     "name": "Mauricio Belusso",
-    "title": "Arquitectura y escala",
-    "summary": "Construcción, optimización y evolución de sistemas de alta concurrencia y procesamiento masivo en la nube. Trabajo principalmente en Java y AWS, con pragmatismo técnico, FinOps e ingeniería asistida por IA — sin renunciar al rigor arquitectónico.",
+    "title": "Staff / Principal Backend & Platform Engineer",
+    "summary": "Ingeniero backend especializado en sistemas distribuidos de alta concurrencia y optimización de runtime de la JVM a escala de producción. Track record objetivo en FinOps (-85% de costo de cómputo en AWS EKS), tuning de concurrencia con Virtual Threads en Java 25 LTS y pipelines batch que procesan cientos de miles de registros sin pérdida de disponibilidad. Actuación de punta a punta: desde la erradicación de fugas de memoria críticas hasta la modernización arquitectónica de monolitos legados hacia plataformas desacopladas y observables.",
     "availability": "Enfoque total en arquitectura y escalabilidad",
     "contactHeadline": "El canal es restringido a propósito.",
     "contactBody": "Estoy inmerso en problemas complejos de arquitectura y escalabilidad. Las conversaciones aquí se limitan a arquitectura, intercambios técnicos de alto nivel o proyectos de impacto crítico. El compromiso exclusivo no se desplaza por un puesto común: exige un desafío técnico fuera de lo común y una cultura de ingeniería extremadamente seria.",
@@ -106,52 +106,47 @@
     },
     {
       "company": "Softfocus",
-      "role": "Desarrollador Web",
+      "role": "Senior Software Engineer / Backend Architect",
       "period": "Nov 2023 – Nov 2024",
       "achievements": [
-        "Reducción de más del 60% de los defectos en producción y 70% de simplificación estructural del código.",
-        "Modernización de un legado Struts mediante la creación de un framework personalizado de Inyección de Dependencias por anotaciones.",
-        "Integración directa con grandes bancos y cooperativas de crédito, conectando sistemas al BACEN vía APIs REST seguras."
+        "Desarrollo de un framework propietario de inyección de dependencias por anotaciones para desacoplar un monolito legado, reduciendo los defectos en producción en un 60% y la complejidad estructural del código en un 70%.",
+        "Integración de sistemas transaccionales críticos con instituciones financieras y cooperativas de crédito vía APIs REST seguras conectadas al BACEN, garantizando el cumplimiento normativo en flujos de datos sensibles."
       ],
-      "stack": ["Java", "Struts", "PostgreSQL", "Docker"]
+      "stack": ["Java", "PostgreSQL", "Docker", "REST APIs"]
     },
     {
       "company": "Mirante Tecnologia",
-      "role": "Desarrollador Web · Precursor del Proyecto",
+      "role": "Technical Lead / Solutions Architect",
       "period": "Mar 2023 – Nov 2023",
       "achievements": [
-        "Ideador y precursor del proyecto de automatización de edictos para el INCRA, definiendo desde cero el stack tecnológico y la arquitectura de la solución.",
-        "Desarrollo del módulo de generación automatizada de edictos, eliminando procesos manuales y reduciendo el tiempo de elaboración.",
-        "Implementación de firma digital de edictos con certificado digital para el equipo interno.",
-        "Integración con gov.br permitiendo que los candidatos se autenticaran y se inscribieran directamente en los edictos.",
-        "Estructuración del pipeline de CI/CD en GitLab, automatizando build, pruebas y deploys del proyecto desde su concepción."
+        "Definición desde cero del stack tecnológico y la arquitectura de la solución como arquitecto fundador del proyecto de automatización de edictos públicos (INCRA).",
+        "Ingeniería del módulo de generación automatizada de edictos, eliminando procesos manuales y comprimiendo el tiempo de elaboración de documentos.",
+        "Implementación de firma digital con certificado ICP-Brasil e integración de autenticación vía gov.br, viabilizando la inscripción directa de candidatos con validez jurídica.",
+        "Estructuración del pipeline CI/CD (GitLab) desde la concepción del proyecto, automatizando build, pruebas y deploy."
       ],
       "stack": ["Java", "GitLab CI/CD", "gov.br", "Certificado Digital"]
     },
     {
       "company": "OSF Digital",
-      "role": "Desarrollador Web · SRE",
+      "role": "Platform Engineer / SRE",
       "period": "May 2022 – Mar 2023",
       "achievements": [
-        "Actuación en el proyecto SuperApp Porto Seguro junto a los equipos de Innovación y SRE.",
-        "Gestión de CI/CD para más de 70 microservicios Java, reduciendo el tiempo de deploy de 20 a 8 minutos.",
-        "Estructuración de observabilidad en la nube con ELK Stack (Kibana), OpenSearch, AWS CloudWatch y AppDynamics.",
-        "Implementación de identificación de dispositivos de acceso a las APIs a partir del análisis del User-Agent de aplicaciones y navegadores, permitiendo un monitoreo y troubleshooting más precisos por canal de origen."
+        "Gestión de pipelines CI/CD para una flota de 70+ microservicios Java en el proyecto SuperApp Porto Seguro, reduciendo el tiempo de deploy de 20 a 8 minutos (-60%).",
+        "Estructuración de un stack de observabilidad (ELK/Kibana, OpenSearch, AWS CloudWatch, AppDynamics) para el monitoreo en tiempo real de sistemas distribuidos.",
+        "Ingeniería de identificación de dispositivos vía análisis de User-Agent, aumentando la precisión de troubleshooting por canal de origen."
       ],
       "stack": ["Java", "Kibana", "OpenSearch", "AWS CloudWatch", "AppDynamics"]
     },
     {
       "company": "VIASOFT",
-      "role": "Desarrollador Web · Tech Lead · Scrum Master",
+      "role": "Technical Lead / Backend Engineer",
       "period": "Jul 2019 – Abr 2022",
       "achievements": [
-        "Integración del sistema legado (Delphi) con un microservicio REST stateless en Java/Spring Boot para viabilizar el funcionamiento con la aplicación Android.",
-        "Transición de carrera del desarrollo Desktop a Web, asumiendo como dueño técnico el producto Sales Platform Web y evolucionándolo de forma continua según las demandas del mercado, conviviendo con la versión Desktop ya existente.",
-        "Actuación como Tech Lead y Scrum Master del equipo, conduciendo ceremonias ágiles y definiendo estándares técnicos y de code review.",
-        "Implantación de un pipeline de integración y entrega continua (CI/CD) utilizando Jenkins, automatizando builds y deploys de la plataforma.",
-        "Viaje técnico al cliente para levantamiento de requisitos, soporte a la implantación y alineación directa con stakeholders de negocio."
+        "Modernización de la integración entre el sistema legado de escritorio y un microservicio REST stateless en Java/Spring Boot, viabilizando la expansión a la plataforma móvil Android.",
+        "Liderazgo técnico del producto Sales Platform Web, definiendo estándares de arquitectura y criterios de code review para el equipo de ingeniería.",
+        "Implantación de un pipeline CI/CD (Jenkins), automatizando build y deploy continuo de la plataforma."
       ],
-      "stack": ["Java", "Spring Boot", "Delphi", "Android", "Jenkins", "Scrum"]
+      "stack": ["Java", "Spring Boot", "Android", "Jenkins"]
     }
   ],
   "skills": [
