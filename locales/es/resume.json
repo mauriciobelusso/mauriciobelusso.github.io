@@ -19,18 +19,18 @@
     "experienceKicker": "// Carrera e Historial",
     "experienceTitle": "Trayectoria Profesional",
     "skillsKicker": "// Stack y Habilidades",
-    "skillsTitle": "Dominio Técnico",
+    "skillsTitle": "Habilidades técnicas",
     "educationKicker": "// Formación y Desarrollo Continuo",
     "educationTitle": "Educación y Cualificaciones",
     "educationAcademicLabel": "Formación Académica",
     "languagesLabel": "Idiomas",
-    "contactKicker": "// Canal restringido",
-    "contactTags": "Arquitectura · Intercambios técnicos de alto nivel · Impacto crítico",
-    "footer": "© {year} Mauricio Belusso. Diseñado con foco en alto rendimiento y código limpio. Datos en locales/{lang}/resume.json.",
+    "contactKicker": "// Contacto",
+    "contactTags": "Arquitectura · Sistemas distribuidos · FinOps",
+    "footer": "© {year} Mauricio Belusso. Datos en locales/{lang}/resume.json.",
     "loading": "Cargando…",
     "loadingResume": "Cargando currículum…",
     "loadError": "No fue posible cargar el currículum. Sirva el sitio por HTTP (p. ej. GitHub Pages o un servidor local).",
-    "emailSubject": "Arquitectura, escala o un proyecto de impacto crítico",
+    "emailSubject": "Arquitectura y sistemas distribuidos",
     "langSwitcherAria": "Seleccionar idioma",
     "cvBack": "← Portafolio",
     "cvPrint": "Imprimir / guardar PDF",
@@ -44,11 +44,11 @@
   },
   "personal": {
     "name": "Mauricio Belusso",
-    "title": "Staff / Principal Backend & Platform Engineer",
-    "summary": "Ingeniero backend especializado en sistemas distribuidos de alta concurrencia y optimización de runtime de la JVM a escala de producción. Track record objetivo en FinOps (-85% de costo de cómputo en AWS EKS), tuning de concurrencia con Virtual Threads en Java 25 LTS y pipelines batch que procesan cientos de miles de registros sin pérdida de disponibilidad. Actuación de punta a punta: desde la erradicación de fugas de memoria críticas hasta la modernización arquitectónica de monolitos legados hacia plataformas desacopladas y observables.",
-    "availability": "Enfoque total en arquitectura y escalabilidad",
-    "contactHeadline": "El canal es restringido a propósito.",
-    "contactBody": "Estoy inmerso en problemas complejos de arquitectura y escalabilidad. Las conversaciones aquí se limitan a arquitectura, intercambios técnicos de alto nivel o proyectos de impacto crítico. El compromiso exclusivo no se desplaza por un puesto común: exige un desafío técnico fuera de lo común y una cultura de ingeniería extremadamente seria.",
+    "title": "Staff Backend & Platform Engineer",
+    "summary": "Ingeniero backend en sistemas distribuidos y optimización de runtime de la JVM en producción. En FinOps, reduje el costo de cómputo en AWS EKS en un 85%. Trabajo con Virtual Threads en Java 25 LTS y pipelines batch de cientos de miles de registros. El alcance va de la corrección de fugas de memoria a la modernización de monolitos legados hacia plataformas desacopladas y observables.",
+    "availability": "Arquitectura y sistemas distribuidos",
+    "contactHeadline": "Arquitectura, sistemas distribuidos y costo de infraestructura.",
+    "contactBody": "Estoy abierto a conversaciones sobre arquitectura, sistemas en producción y optimización de costo en la nube.",
     "contactCta": "Hablar sobre arquitectura",
     "email": "mauriciobelusso@gmail.com",
     "github": "https://github.com/mauriciobelusso",
@@ -82,14 +82,14 @@
       "metric": "100 mcores → 30 mcores",
       "metrics": ["100 mcores → 30 mcores", "1,3 GB → 900 MB"],
       "tag": "Virtual Threads (Loom)",
-      "title": "Migración y Concurrencia de Punta (Java 25 LTS)",
+      "title": "Migración a Java 25 LTS y Virtual Threads",
       "description": "Conduje la modernización de microservicios de Java 8 a 25 LTS. Adopté Virtual Threads reduciendo en 70% el consumo medio de CPU y la memoria de 1,3 GB a 900 MB — nivel mantenido bajo alta carga — y mitigando bloqueos de hilos físicos (carrier thread pinning) en bloques sincronizados."
     },
     {
       "metric": "Semanas → Instantáneo",
       "tag": "Autonomía Operativa",
       "title": "Motor Dinámico de Sustitución de Variables",
-      "description": "Desarrollé un motor de renderizado de documentos de notificación que eliminó la necesidad de codificación/despliegues para nuevos layouts, otorgando autonomía total al equipo operativo para crear plantillas ilimitadas."
+      "description": "Desarrollé un motor de renderizado de documentos de notificación. El equipo operativo publica nuevos layouts sin código ni despliegues."
     }
   ],
   "experience": [
@@ -99,7 +99,7 @@
       "period": "Ene 2025 – Presente",
       "achievements": [
         "Liderazgo en la reducción del 85% del costo de infraestructura de una API crítica en AWS EKS.",
-        "Arquitectura de soluciones batch desacopladas vía AWS SQS para el procesamiento masivo de registros de restricción de crédito.",
+        "Arquitectura de soluciones batch desacopladas vía AWS SQS para el procesamiento de registros de restricción de crédito.",
         "Canales en tiempo real con WebSockets autenticados nativos y cargas desacopladas vía S3 Signed URLs.",
         "Migración continua del ecosistema de microservicios hasta Java 25 LTS con Virtual Threads, reduciendo CPU de 100 a 30 mcores y memoria de 1,3 GB a 900 MB incluso bajo alta carga.",
         "Tuning de base de datos NoSQL (MongoDB), análisis de explain plans y aplicación de índices vía Mongock sin bloqueos de deploy."
@@ -121,7 +121,7 @@
       "role": "Technical Lead / Solutions Architect",
       "period": "Mar 2023 – Nov 2023",
       "achievements": [
-        "Definición desde cero del stack tecnológico y la arquitectura de la solución como arquitecto fundador del proyecto de automatización de edictos públicos (INCRA).",
+        "Definí el stack y la arquitectura del proyecto de automatización de edictos públicos (INCRA).",
         "Ingeniería del módulo de generación automatizada de edictos, eliminando procesos manuales y comprimiendo el tiempo de elaboración de documentos.",
         "Implementación de firma digital con certificado ICP-Brasil e integración de autenticación vía gov.br, viabilizando la inscripción directa de candidatos con validez jurídica.",
         "Estructuración del pipeline CI/CD (GitLab) desde la concepción del proyecto, automatizando build, pruebas y deploy."
@@ -154,7 +154,7 @@
   "skills": [
     {
       "category": "Lenguajes y Backend",
-      "description": "Especialista en el ecosistema Java moderno y la concurrencia avanzada.",
+      "description": "Java 8–25, Spring Boot y Virtual Threads.",
       "items": ["Java (8 a 25 LTS)", "Spring Boot", "Virtual Threads", "Hibernate", "Angular"]
     },
     {
