@@ -1,100 +1,63 @@
 ---
 name: job-fit
 description: >
-  Avalia se Mauricio Belusso tem fit com uma vaga. Use quando o usuário
-  colar uma descrição de vaga, JD, job description, link de vaga, ou
-  perguntar se tem fit, match, aderência, alinhamento, ou se vale se
-  candidatar. Compara a vaga com locales/pt-BR/resume.json e devolve
-  veredito, evidências e lacunas. Não usar para reescrever o currículo.
+  Responde se Mauricio Belusso conseguiria fazer o trabalho de uma vaga.
+  Use quando ele colar uma descrição de vaga, JD, job description, link de
+  vaga, ou perguntar se conseguiria fazer, se daria conta, se tem fit, match
+  ou se deve se candidatar. Lê locales/pt-BR/resume.json. A resposta é curta.
+  Não usar para reescrever o currículo nem para julgar se a vaga está à altura dele.
 ---
 
-# Fit com a vaga
+# Conseguiria fazer o trabalho?
 
-Avalie duas coisas, separadas:
+A pergunta é uma só: ele conseguiria fazer o trabalho dessa vaga?
 
-1. **Aderência técnica** — a vaga pede o que o currículo prova.
-2. **Aderência à barra** — a vaga justifica o posicionamento em `personal.contactBody` e `personal.availability`.
+Responda no idioma da mensagem dele. Curto. Sem tabela, sem lista longa e sem juízo sobre senioridade, cultura ou se a vaga "vale". Isso só entra se ele perguntar.
 
-Responda no idioma da mensagem do usuário. Cite trechos da vaga no idioma original.
+## Fonte
 
-## Fonte da verdade
-
-1. Leia `locales/pt-BR/resume.json` inteiro antes de julgar. É o currículo canônico.
+1. Leia `locales/pt-BR/resume.json` antes de julgar.
 2. Use só fatos de `personal`, `highlights`, `experience`, `skills` e `education`.
-3. `locales/en`, `locales/es` e `locales/fr` são traduções. A existência deles não é fluência. Idiomas falados estão só em `personal.languages`.
-4. Não complete lacuna com memória, LinkedIn, GitHub ou busca na web. Se não está no JSON, está ausente.
-5. Não edite o currículo nesta skill. Não envie e-mail e não se candidate.
+3. `en`, `es` e `fr` são traduções. Idioma falado está só em `personal.languages`.
+4. Não complete o currículo com memória nem com a web. Não edite o currículo, não envie e-mail e não se candidate.
 
 ## Entrada
 
-- Aceite texto, arquivo ou URL. Se for URL, busque a página e avalie a descrição. Ignore menu, rodapé e anúncio.
-- Se não houver requisitos (só empresa ou título), diga que falta a descrição e pare.
-- Várias vagas: uma avaliação por vaga, na ordem recebida.
+- Texto, arquivo ou URL. Em URL, leia a descrição e ignore menu e rodapé.
+- Sem requisitos, diga que falta a descrição e pare.
+- Várias vagas: uma resposta por vaga.
 
-## Como ler a vaga
+## O que a vaga exige
 
-Extraia só o que a vaga diz:
+Separe três coisas e não misture:
 
-- Título e senioridade
-- Obrigatórios e desejáveis. Sem essa separação, trate como obrigatório o que está em requisitos, responsabilidades centrais ou "você vai". Trate como desejável o que está em plus, diferencial ou nice to have.
-- Stack, domínio, escopo (IC, liderança técnica, gestão de pessoas), local, remoto e idioma
+1. **Obrigatório** — o que está em requisitos, "what we look for" ou equivalente.
+2. **Preferência** — "preferably", "desejável", "plus", "nice to have". Preferência ausente no currículo não impede o trabalho.
+3. **Dia a dia** — "what you'll do" e a stack da empresa. Isso diz em que código ele vai mexer. Só vira trava se o requisito obrigatório exigir essa ferramenta, sem aceitar outra.
 
-Desejável ausente não rebaixa um veredito **Forte**.
+Se o obrigatório diz "Go (preferably) and Java, Python or a similar language", Java cumpre o requisito. Go fica como a linguagem do código, não como mandatório.
 
-## Evidência
+## Como julgar
 
-Classifique cada obrigatório:
+Olhe o trabalho, não o cargo.
 
-- **prova** — explícito em achievement, highlight, stack da experiência ou item de skill, com um fato de uso. Cite empresa, cargo e um trecho curto do JSON.
-- **parcial** — família próxima com outra ferramenta, ou a tecnologia só como tag de stack, sem achievement. Diga a distância.
-- **ausente** — não está no JSON.
+- **Sim** — o miolo do trabalho é o que o currículo já mostra (backend, API, sistema distribuído, fila, nuvem, plataforma, mentoria técnica), e o que falta é preferência ou ferramenta que o requisito aceita substituir.
+- **Sim, aprendendo X** — o miolo é o mesmo, e o dia a dia usa uma ferramenta que não está no currículo. Diga só o nome do que ele aprenderia. Não transforme isso em "não".
+- **Não** — o miolo é outro trabalho: UI como função principal, mobile como função principal, dados ou ML, outra área, ou uma linguagem que o requisito exige em produção e não aceita alternativa.
 
-Calibre assim:
+Regras:
 
-- Tag de stack sem achievement é parcial, não prova.
-- Angular no stack não torna frontend a especialidade. Vaga cujo núcleo é UI é fraca.
-- Ferramentas de IA do currículo são engenharia assistida. Não são ML, ciência de dados nem produto de LLM.
-- Não troque uma ferramenta por outra da mesma prateleira. Fila, orquestração, CI, cloud e banco só contam como a ferramenta que o JSON nomeia. Diga a família e a distância.
-- Métrica só a que o JSON traz. Não arredonde, não some e não invente percentual.
-- Não assuma mudança de país, visto ou pretensão salarial.
-
-## Veredito
-
-Escolha um, nesta ordem:
-
-1. **Fraco** — a família do cargo ou a stack principal é outra, mesmo com uma ferramenta em comum. Exemplos: UI como núcleo, mobile como núcleo, dados ou ML, outra linguagem principal, ou gestão de pessoas sem arquitetura.
-2. **Fora da barra** — a leitura técnica seria Forte ou Parcial, mas a vaga é ordinária: CRUD ou feature factory, escopo pleno ou júnior, sem desafio técnico incomum e sem sinal de cultura de engenharia séria. A barra está em `personal.contactBody`: comprometimento exclusivo não se desloca por uma vaga comum.
-3. **Forte** — a maior parte dos obrigatórios é prova, o restante relevante é parcial, a senioridade é Staff, Principal, Arquiteto, Especialista ou Sênior com escopo de arquitetura ou plataforma, e o problema é incomum (escala, custo, concorrência, legado crítico, plataforma ou regulatório).
-4. **Parcial** — o núcleo backend, plataforma ou Java se sobrepõe, mas um obrigatório material está ausente, ou a senioridade está um degrau fora.
-
-Staff/Principal no currículo não cobre vaga pleno. Isso é desencontro. Se o escopo for ordinário, o veredito é **Fora da barra**. Se o problema técnico for real e o nível estiver um degrau abaixo, o veredito é **Parcial**.
+- Ferramenta ausente no JSON não significa que ele não consegue fazer um trabalho da mesma família.
+- Angular como tag não é especialidade de frontend. Se o miolo for tela, o veredito é **Não**. Se for backend e React aparecer no dia a dia, é **Sim, aprendendo React**.
+- IA do currículo (Claude, Cursor, Copilot) cobre requisito de usar LLM no trabalho. Não cobre vaga de ML.
+- Não troque ferramenta de fila, CI, nuvem ou banco. Diga a que está no JSON e a que a vaga pede.
+- Diploma, visto e salário são filtro de papel. Uma frase, separada. Não mudam o veredito sobre o trabalho.
+- Não invente métrica.
 
 ## Resposta
 
-Comece pelo veredito.
+Duas ou três frases.
 
-### Veredito
-
-Uma linha com **Forte**, **Parcial**, **Fraco** ou **Fora da barra**, e a razão numa frase. Em **Fora da barra**, a frase seguinte diz a leitura técnica (Forte ou Parcial).
-
-### Obrigatórios
-
-Tabela: requisito, classificação (prova, parcial ou ausente), evidência (empresa e trecho) ou o que falta.
-
-### Onde o fit é real
-
-Até quatro fatos do JSON que a vaga pede.
-
-### Lacunas
-
-Só lacunas reais. Separe "não está no currículo" de qualquer conclusão sobre capacidade. Desejável ausente entra aqui, marcado como desejável.
-
-### Barra
-
-Duas ou três frases: o problema é incomum, há sinal de cultura de engenharia séria, e o nível conversa com Staff/Principal.
-
-### Se for responder
-
-Só em **Forte**, ou em **Parcial** com problema técnico que vale a conversa. Três bullets utilizáveis, cada um amarrado a um fato do JSON, sem métrica nova.
-
-Em **Fraco** ou **Fora da barra**, uma frase para não avançar, com o motivo. Não escreva mensagem de candidatura.
+1. **Sim**, **Sim, aprendendo X** ou **Não**, e o porquê numa frase.
+2. O que ele já faz que é o trabalho.
+3. Se houver filtro de papel (diploma, idioma, local), uma frase. Se não houver, omita.
