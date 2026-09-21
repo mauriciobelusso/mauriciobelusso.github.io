@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mauricio Belusso — Currículo</title>
     <meta name="description" content="Currículo A4 de Mauricio Belusso.">
+    <script>
+        if (new URLSearchParams(location.search).has('v')) {
+            var robots = document.createElement('meta');
+            robots.name = 'robots';
+            robots.content = 'noindex, nofollow';
+            document.head.appendChild(robots);
+            var referrer = document.createElement('meta');
+            referrer.name = 'referrer';
+            referrer.content = 'no-referrer';
+            document.head.appendChild(referrer);
+        }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -127,6 +139,7 @@
         .lang-btn:hover { color: var(--ink); }
         .lang-btn.is-active { color: var(--accent); font-weight: 600; }
         .lang-sep { color: var(--rule); padding: 0 1px; }
+        .lang-switcher[hidden] { display: none; }
 
         .sheet {
             width: 210mm;
@@ -559,8 +572,105 @@
             }
         }
 
+        function upsertMeta(name, content) {
+            let meta = document.querySelector(`meta[name="${name}"]`);
+            if (!meta) {
+                meta = document.createElement('meta');
+                meta.setAttribute('name', name);
+                document.head.appendChild(meta);
+            }
+            meta.setAttribute('content', content);
+        }
+
+        function readVariantId() {
+            const params = new URLSearchParams(location.search);
+            if (!params.has('v')) return null;
+            return params.get('v') || '';
+        }
+
+        function readVariantKey() {
+            const raw = location.hash.startsWith('#') ? location.hash.slice(1) : '';
+            try {
+                return decodeURIComponent(raw).trim();
+            } catch (_) {
+                return raw.trim();
+            }
+        }
+
+        function base64UrlToBytes(value) {
+            const normalized = String(value).replace(/-/g, '+').replace(/_/g, '/');
+            const padded = normalized + '='.repeat((4 - (normalized.length % 4)) % 4);
+            const binary = atob(padded);
+            const bytes = new Uint8Array(binary.length);
+            for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
+            return bytes;
+        }
+
+        function markVariantUnlisted() {
+            upsertMeta('robots', 'noindex, nofollow');
+            upsertMeta('referrer', 'no-referrer');
+            const switcher = document.getElementById('lang-switcher');
+            if (switcher) switcher.hidden = true;
+        }
+
+        function showInvalidLink() {
+            document.title = 'Link inválido';
+            document.getElementById('cv-root').innerHTML = '<p class="cv-error">Link inválido ou incompleto.</p>';
+        }
+
+        async function decryptResume(payload, key) {
+            if (!payload || payload.v !== 1 || !payload.iv || !payload.ct) {
+                throw new Error('payload');
+            }
+            const cryptoKey = await crypto.subtle.importKey(
+                'raw',
+                base64UrlToBytes(key),
+                'AES-GCM',
+                false,
+                ['decrypt']
+            );
+            const plain = await crypto.subtle.decrypt(
+                { name: 'AES-GCM', iv: base64UrlToBytes(payload.iv) },
+                cryptoKey,
+                base64UrlToBytes(payload.ct)
+            );
+            return JSON.parse(new TextDecoder().decode(plain));
+        }
+
+        async function loadVariant(id) {
+            markVariantUnlisted();
+            if (!/^[a-f0-9]{32}$/.test(id)) {
+                showInvalidLink();
+                return;
+            }
+            const key = readVariantKey();
+            if (!key) {
+                showInvalidLink();
+                return;
+            }
+            try {
+                const response = await fetch(`v/${id}.json`, { cache: 'no-cache' });
+                if (!response.ok) throw new Error('missing');
+                const data = await decryptResume(await response.json(), key);
+                const lang = (data.meta && data.meta.lang) || ResumeI18n.DEFAULT_LANG;
+                document.documentElement.lang = lang;
+                renderCv(data, lang);
+                await maybeAutoPrint();
+            } catch (_) {
+                showInvalidLink();
+            }
+        }
+
         document.getElementById('print-btn').addEventListener('click', () => window.print());
-        loadResume(currentLang, { autoPrint: true });
+
+        const variantId = readVariantId();
+        if (variantId !== null) {
+            markVariantUnlisted();
+            loadVariant(variantId);
+            window.addEventListener('hashchange', () => loadVariant(variantId));
+        } else {
+            loadResume(currentLang, { autoPrint: true });
+        }
     </script>
 </body>
 </html>
