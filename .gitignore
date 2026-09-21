@@ -24,6 +24,9 @@ codekit-config.json
 # macOS
 .DS_Store
 
+# Chaves dos currículos por vaga. O ciphertext em v/<id>.json pode ser commitado.
+v/index.private.json
+
 # Jekyll generated files
 .jekyll-cache
 .jekyll-metadata

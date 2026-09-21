@@ -44,6 +44,14 @@ python3 -m http.server 8080
 # or http://localhost:8080/?lang=en
 ```
 
+## Targeted résumé link
+
+A job-specific résumé is an encrypted file under `v/<id>.json`. The page
+`cv.html?v=<id>#<key>` decrypts it in the browser. The key stays in the URL
+fragment and in the gitignored `v/index.private.json`. Generate a link with the
+`cv-vaga` skill (`scripts/seal-cv.mjs`). Without the fragment the page shows an
+invalid-link message and does not fall back to the public résumé.
+
 ## GitHub Pages
 
 Configure GitHub Pages to deploy from the **branch** containing this repository
