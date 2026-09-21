@@ -89,5 +89,5 @@ Crie um agente novo só quando o trabalho não couber no escopo de um papel já 
 3. **Escopo de arquivos.** Declare os caminhos que o agente pode editar e os que só pode ler. Prefira um dono por arquivo. Hoje os donos são: JSON → Curador de Currículo; `index.html` → Agente de Portfólio; `cv.html` → Agente de CV; `js/i18n.js` → Agente de i18n.
 4. **Registre aqui antes do código.** A entrada neste arquivo vem primeiro. Se o agente precisar de código executável, coloque-o num diretório dedicado, cite o caminho na linha de ferramentas e não misture esse código em `index.html` ou `cv.html`.
 5. **Preserve o contrato do site.** Sem passo de build, JSON como fonte única, paridade dos quatro idiomas, resolução de idioma inalterada salvo mudança explícita, e nenhum fato pessoal inventado.
-6. **Não duplique a regra global.** `claude.md` já obriga a leitura deste arquivo. A diretriz nova fica nesta seção, não numa segunda cópia da regra.
+6. **Não duplique a regra global.** `CLAUDE.md` já obriga a leitura deste arquivo. A diretriz nova fica nesta seção, não numa segunda cópia da regra.
 7. **Atualize o README só se o fluxo público mudar** (idioma novo, arquivo novo servido no Pages, ou outro jeito de abrir o preview).
