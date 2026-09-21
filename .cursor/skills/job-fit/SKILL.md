@@ -17,7 +17,9 @@ Responda três coisas, nesta ordem:
 2. Ele tem fit com a vaga?
 3. É interessante?
 
-Interessante só se as duas primeiras forem sim. Salário maior não cria fit. Fit parcial não vira interessante.
+O trabalho é para pagar as contas. Ele avalia salário acima de desafio, cultura de engenharia e crescimento profissional. Salário maior não cria fit técnico. Desafio, cultura e crescimento não vetam e não são motivo para não avançar.
+
+Entrega sênior de features em startup, CRUD ou ausência de desafio fora do comum não bloqueiam. Se o miolo técnico encosta e a vaga é remota, ela segue.
 
 Responda no idioma da mensagem dele. Curto. Sem tabela e sem lista longa.
 
@@ -57,7 +59,7 @@ Angular como tag não é especialidade de frontend. Miolo em tela: **Não**. Bac
 
 Diploma é filtro de papel. Uma frase. Não muda se ele conseguiria fazer o trabalho.
 
-Cargo Senior, com o mesmo tipo de trabalho e salário maior, não é falta de capacidade. Não trate o título Staff do currículo como motivo para recusar.
+Cargo Senior, com o mesmo tipo de trabalho e salário maior, não é falta de capacidade. Não trate o título Staff do currículo como motivo para recusar. Não recuse entrega sênior de features por falta de desafio incomum ou de cultura de engenharia.
 
 ## Tem fit?
 
@@ -75,8 +77,10 @@ Vaga em português: inglês não entra no fit.
 
 ## É interessante?
 
-- **Sim** — conseguiria e tem fit. Se ele disse que paga mais do que ganha hoje, diga isso numa frase.
-- **Ainda não** — fit parcial ou sem fit. Se o salário é maior, diga que o dinheiro interessaria se o fit fechasse, e diga o que falta.
+- **Sim** — ele conseguiria (Sim ou Sim, aprendendo), a vaga é remota e o nível não é estágio nem júnior. Fit parcial não impede: diga o que falta. Se a vaga declara faixa, ou se ele disse que paga mais do que ganha hoje, cite isso. Sem número, diga que a decisão é o salário. Não invente pretensão.
+- **Ainda não** — ele não conseguiria, não é remota, ou a remuneração declarada é de estágio, júnior ou não remunerada.
+
+Não use desafio incomum, cultura de engenharia nem crescimento profissional nesta resposta. Não escreva "não avançar" porque a vaga é entrega de features.
 
 ## Currículo direcionado
 
@@ -84,7 +88,7 @@ Vaga em português: inglês não entra no fit.
 
 Sugira `/cv-vaga` só quando **Interessante** for sim. Diga para invocar com a descrição completa da vaga. Não resuma a vaga no lugar dela.
 
-Se o fit for parcial ou não houver fit, não sugira.
+Se **Interessante** for ainda não, não sugira. Fit parcial não impede a sugestão.
 
 ## Resposta
 
@@ -92,6 +96,6 @@ Cinco frases no máximo.
 
 1. **Conseguiria:** Sim, Sim aprendendo X, ou Não. O porquê numa frase.
 2. **Fit:** Sim, Parcial ou Não. O porquê numa frase, com o inglês quando a vaga opera em inglês.
-3. **Interessante:** Sim ou Ainda não. O salário só entra aqui, se ele tiver comparado com o que ganha hoje.
+3. **Interessante:** Sim ou Ainda não, numa frase. Com fit parcial, inclua o que falta. Inclua a faixa se a vaga declarar, ou a comparação se ele tiver feito. Sem número, diga que a decisão é o salário.
 4. Filtro de papel, se houver.
 5. Se for interessante, uma frase: invocar `/cv-vaga` com a descrição completa da vaga.
