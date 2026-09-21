@@ -28,7 +28,7 @@ Schema outline:
 
 - `meta` — language code
 - `ui` — navigation, section titles, CTAs, and CV labels
-- `personal` — name, title, summary, availability, restricted contact copy, contacts, languages
+- `personal` — name, title, summary, availability, contact copy, contacts, languages
 - `highlights` — measurable impact cards
 - `experience` — roles, achievements, stack tags
 - `skills` — skill groups
