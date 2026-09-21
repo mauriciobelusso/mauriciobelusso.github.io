@@ -70,7 +70,7 @@
       "metric": "-85% AWS EKS Costs",
       "tag": "Troubleshooting & Memory Leak",
       "title": "High-Frequency Transactional API Optimization",
-      "description": "Diagnosed and fixed a critical memory leak in an endpoint exposed to automation bots. Reduced required infrastructure from 12 pods (3GB RAM each) to only 1–2 pods (1.5GB RAM), eliminating Out-of-Memory (OOM) crashes in production."
+      "description": "Diagnosed, with advanced profiling, and fixed a critical memory leak in an endpoint exposed to automation bots. Reduced required infrastructure from 12 pods (3GB RAM each) to only 1–2 pods (1.5GB RAM), eliminating Out-of-Memory (OOM) crashes in production."
     },
     {
       "metric": "300k Records / Batch",
@@ -100,10 +100,11 @@
       "achievements": [
         "Led an 85% infrastructure-cost reduction for a critical API on AWS EKS.",
         "Architected decoupled batch solutions on AWS SQS for massive processing of credit-restriction records.",
+        "Real-time channels with native authenticated WebSockets and decoupled uploads via S3 Signed URLs.",
         "Ongoing migration of the microservices ecosystem to Java 25 LTS with Virtual Threads, reducing CPU from 100 to 30 mcores and memory from 1.3 GB to 900 MB even under high load.",
         "NoSQL database tuning (MongoDB), explain-plan analysis, and index application via Mongock without deploy locks."
       ],
-      "stack": ["Java 25", "Spring Boot", "AWS EKS", "AWS SQS", "MongoDB", "Mongock"]
+      "stack": ["Java 25", "Spring Boot", "AWS EKS", "AWS S3", "AWS SQS", "MongoDB", "Mongock", "Angular"]
     },
     {
       "company": "Softfocus",
@@ -113,7 +114,7 @@
         "Developed a proprietary annotation-based dependency-injection framework to decouple a legacy monolith, cutting production defects by 60% and code structural complexity by 70%.",
         "Integrated critical transactional systems with financial institutions and credit unions via secure REST APIs connected to BACEN, ensuring regulatory compliance across sensitive data flows."
       ],
-      "stack": ["Java", "PostgreSQL", "Docker", "REST APIs"]
+      "stack": ["Java", "PostgreSQL", "Docker", "REST APIs", "Angular"]
     },
     {
       "company": "Mirante Tecnologia",
@@ -125,7 +126,7 @@
         "Implemented ICP-Brasil digital-certificate signing and gov.br authentication integration, enabling candidates to apply directly with legal validity.",
         "Set up the CI/CD pipeline (GitLab) from the project's inception, automating build, tests, and deploy."
       ],
-      "stack": ["Java", "GitLab CI/CD", "gov.br", "Digital Certificate"]
+      "stack": ["Java", "GitLab CI/CD", "gov.br", "Digital Certificate", "Angular"]
     },
     {
       "company": "OSF Digital",
@@ -133,10 +134,10 @@
       "period": "May 2022 – Mar 2023",
       "achievements": [
         "Managed CI/CD pipelines for a fleet of 70+ Java microservices on the SuperApp Porto Seguro project, cutting deploy time from 20 to 8 minutes (-60%).",
-        "Built an observability stack (ELK/Kibana, OpenSearch, AWS CloudWatch, AppDynamics) for real-time monitoring of distributed systems.",
-        "Engineered device identification via User-Agent analysis, increasing troubleshooting precision by origin channel."
+        "Built an observability stack (ELK/Kibana, OpenSearch, AWS CloudWatch, AppDynamics) for real-time monitoring of distributed systems, including Terraform provisioning of ELK across the fleet.",
+        "Engineered origin identification (IP, device, and user) via User-Agent analysis, increasing troubleshooting precision by channel."
       ],
-      "stack": ["Java", "Kibana", "OpenSearch", "AWS CloudWatch", "AppDynamics"]
+      "stack": ["Java", "Kibana", "OpenSearch", "AWS CloudWatch", "AppDynamics", "Terraform", "Angular"]
     },
     {
       "company": "VIASOFT",
@@ -147,14 +148,14 @@
         "Led the Sales Platform Web product technically, defining architecture standards and code-review criteria for the engineering team.",
         "Deployed a CI/CD pipeline (Jenkins), automating continuous build and deploy for the platform."
       ],
-      "stack": ["Java", "Spring Boot", "Android", "Jenkins"]
+      "stack": ["Java", "Spring Boot", "Android", "Jenkins", "Angular"]
     }
   ],
   "skills": [
     {
       "category": "Languages & Backend",
       "description": "Specialist in the modern Java ecosystem and advanced concurrency.",
-      "items": ["Java (8 to 25 LTS)", "Spring Boot", "Virtual Threads", "Hibernate"]
+      "items": ["Java (8 to 25 LTS)", "Spring Boot", "Virtual Threads", "Hibernate", "Angular"]
     },
     {
       "category": "Cloud, DevOps & FinOps",
@@ -163,8 +164,8 @@
     },
     {
       "category": "AI & Observability",
-      "description": "AI-assisted engineering and real-time microservice monitoring.",
-      "items": ["Claude Code / Copilot", "ELK / Kibana", "OpenSearch", "AppDynamics", "MongoDB / PostgreSQL"]
+      "description": "AI-assisted engineering, with technical review of architecture, security, and business rules, and real-time microservice monitoring.",
+      "items": ["Claude Code / OpenCode / Cursor / Copilot", "ELK / Kibana", "OpenSearch", "AppDynamics", "MongoDB / PostgreSQL"]
     }
   ],
   "education": {
