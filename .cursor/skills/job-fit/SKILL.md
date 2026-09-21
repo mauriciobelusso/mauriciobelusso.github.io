@@ -5,7 +5,8 @@ description: >
   o trabalho, se tem fit e se a vaga é interessante. Use quando ele colar uma
   JD, link de vaga, ou perguntar se conseguiria fazer, se tem fit, se daria
   conta ou se deve se candidatar. Inglês dele é B1 ou B2, ainda incerto. Lê
-  locales/pt-BR/resume.json. A resposta é curta. Não usar para reescrever o currículo.
+  locales/pt-BR/resume.json. A resposta é curta. Se for interessante, sugira
+  /cv-vaga com a descrição completa. Não gere o currículo nesta skill.
 ---
 
 # Do ponto de vista dele
@@ -26,7 +27,7 @@ Responda no idioma da mensagem dele. Curto. Sem tabela e sem lista longa.
 2. `en`, `es` e `fr` são traduções.
 3. Inglês: B1 ou B2, ele ainda não cravou. O "Proficiência Profissional" do JSON não vale para este julgamento.
 4. Não invente salário atual. Se ele disser que a oferta paga mais, use essa comparação. Não complete o resto do currículo com memória nem com a web.
-5. Não edite o currículo, não envie e-mail e não se candidate.
+5. Não edite o currículo, não envie e-mail e não se candidate. O currículo direcionado é outra skill, `/cv-vaga`.
 
 ## Entrada
 
@@ -73,6 +74,14 @@ Vaga em português: inglês não entra no fit.
 - **Sim** — conseguiria e tem fit. Se ele disse que paga mais do que ganha hoje, diga isso numa frase.
 - **Ainda não** — fit parcial ou sem fit. Se o salário é maior, diga que o dinheiro interessaria se o fit fechasse, e diga o que falta.
 
+## Currículo direcionado
+
+`/cv-vaga` gera um currículo novo a partir da descrição da vaga e devolve um link cifrado. Esta skill não gera esse currículo.
+
+Sugira `/cv-vaga` só quando **Interessante** for sim. Diga para invocar com a descrição completa da vaga. Não resuma a vaga no lugar dela.
+
+Se o fit for parcial ou não houver fit, não sugira.
+
 ## Resposta
 
 Cinco frases no máximo.
@@ -81,3 +90,4 @@ Cinco frases no máximo.
 2. **Fit:** Sim, Parcial ou Não. O porquê numa frase, com o inglês quando a vaga opera em inglês.
 3. **Interessante:** Sim ou Ainda não. O salário só entra aqui, se ele tiver comparado com o que ganha hoje.
 4. Filtro de papel, se houver.
+5. Se for interessante, uma frase: invocar `/cv-vaga` com a descrição completa da vaga.
