@@ -30,6 +30,8 @@ Mantenha iguais: empresas, períodos, formação, contatos, idiomas, blocos `ui`
 
 Copie `meta.lang` do arquivo de origem.
 
+Ele é AuDHD e precisa trabalhar remoto. Não escreva nenhum dos dois no currículo, a menos que ele peça.
+
 ## Selar
 
 Grave o JSON direcionado em arquivo temporário fora do git (por exemplo `/tmp/cv-vaga-resume.json`). Rode, na raiz do repositório:

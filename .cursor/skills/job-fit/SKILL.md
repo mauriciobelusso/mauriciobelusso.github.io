@@ -28,6 +28,10 @@ Responda no idioma da mensagem dele. Curto. Sem tabela e sem lista longa.
 3. Inglês: B1 ou B2, ele ainda não cravou. O "Proficiência Profissional" do JSON não vale para este julgamento.
 4. Não invente salário atual. Se ele disser que a oferta paga mais, use essa comparação. Não complete o resto do currículo com memória nem com a web.
 5. Não edite o currículo, não envie e-mail e não se candidate. O currículo direcionado é outra skill, `/cv-vaga`.
+6. Duas restrições dele, fora do JSON. Não diga que estão ausentes no currículo. Não escreva as duas no currículo.
+
+- Ele é AuDHD. Não é lacuna técnica e não vira conclusão de cota ou de PcD. Mencione só se a vaga for afirmativa para PcD ou neurodivergência.
+- Ele precisa trabalhar remoto. Presencial, híbrido ou modelo não declarado: fit **Não** e interessante **Ainda não**. Isso não muda se ele conseguiria fazer o trabalho.
 
 ## Entrada
 
@@ -59,7 +63,7 @@ Cargo Senior, com o mesmo tipo de trabalho e salário maior, não é falta de ca
 
 - **Sim** — os obrigatórios batem, o trabalho é backend, plataforma ou arquitetura, e o inglês alcança o idioma em que a vaga opera.
 - **Parcial** — ele faria o trabalho, e um obrigatório material não está no currículo, ou o inglês fica curto para o dia a dia da vaga.
-- **Não** — a vaga pede outro perfil.
+- **Não** — a vaga pede outro perfil, ou não é remota.
 
 Inglês, quando a vaga opera em inglês (descrição, entrevista, produto, time):
 
