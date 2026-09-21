@@ -76,7 +76,7 @@
       "metric": "300k Enregistrements / Batch",
       "tag": "Restriction de crédit",
       "title": "Traitement par lots à haute scalabilité",
-      "description": "J'ai conçu des flux scalables pour l'annotation et la conciliation de crédit privé (PEFIN, REFIN et CONVEM), traitant jusqu'à 300 000 CPF/CNPJ en une seule exécution sans impact sur la disponibilité."
+      "description": "J'ai conçu des flux scalables sur AWS SQS pour l'annotation et la conciliation de crédit privé (PEFIN, REFIN et CONVEM), traitant jusqu'à 300 000 CPF/CNPJ en une seule exécution sans impact sur la disponibilité."
     },
     {
       "metric": "100 mcores → 30 mcores",
@@ -99,11 +99,11 @@
       "period": "Janv. 2025 – Présent",
       "achievements": [
         "Pilotage de la réduction de 85 % du coût d'infrastructure d'une API critique sur AWS EKS.",
-        "Architecture de solutions batch pour le traitement massif d'enregistrements de restriction de crédit.",
+        "Architecture de solutions batch découplées via AWS SQS pour le traitement massif d'enregistrements de restriction de crédit.",
         "Migration continue de l'écosystème de microservices vers Java 25 LTS avec Virtual Threads, réduisant le CPU de 100 à 30 mcores et la mémoire de 1,3 Go à 900 Mo même sous forte charge.",
         "Tuning de base NoSQL (MongoDB), analyse des explain plans et application d'index via Mongock sans verrous de déploiement."
       ],
-      "stack": ["Java 25", "Spring Boot", "AWS EKS", "MongoDB", "Mongock"]
+      "stack": ["Java 25", "Spring Boot", "AWS EKS", "AWS SQS", "MongoDB", "Mongock"]
     },
     {
       "company": "Softfocus",
@@ -159,7 +159,7 @@
     {
       "category": "Cloud, DevOps et FinOps",
       "description": "Infrastructure as code, conteneurisation et optimisation des coûts cloud.",
-      "items": ["AWS (EKS, S3, CloudWatch)", "Docker", "Terraform", "Jenkins / GitLab CI"]
+      "items": ["AWS (EKS, S3, SQS, CloudWatch)", "Docker", "Terraform", "Jenkins / GitLab CI"]
     },
     {
       "category": "IA et observabilité",
