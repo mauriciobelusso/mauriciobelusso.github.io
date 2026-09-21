@@ -5,8 +5,9 @@ description: >
   o trabalho, se tem fit e se a vaga é interessante. Use quando ele colar uma
   JD, link de vaga, ou perguntar se conseguiria fazer, se tem fit, se daria
   conta ou se deve se candidatar. Inglês dele é B1 ou B2, ainda incerto. Lê
-  locales/pt-BR/resume.json. A resposta é curta. Se for interessante, sugira
-  /cv-vaga com a descrição completa. Não gere o currículo nesta skill.
+  locales/pt-BR/resume.json.   A resposta é curta. Interessante significa retorno financeiro. Se for
+  interessante, sugira /cv-vaga com a descrição completa. Não gere o
+  currículo nesta skill.
 ---
 
 # Do ponto de vista dele
@@ -17,7 +18,11 @@ Responda três coisas, nesta ordem:
 2. Ele tem fit com a vaga?
 3. É interessante?
 
-Interessante só se as duas primeiras forem sim. Salário maior não cria fit. Fit parcial não vira interessante.
+Ele trabalha para ficar rico. O critério é retorno financeiro: salário, bônus e participação com valor declarado. Salário maior não cria fit técnico. Gosto, realização profissional, desafio, cultura de engenharia e crescimento ficam fora do julgamento.
+
+Entrega sênior de features em startup, CRUD ou ausência de desafio fora do comum não bloqueiam. Se o miolo técnico encosta e a vaga é remota, ela segue.
+
+Vaga que ele envia sem salário declarado: o salário possivelmente é maior do que o que ele ganha hoje. Não invente o valor. Não deixe a decisão em aberto por falta de faixa.
 
 Responda no idioma da mensagem dele. Curto. Sem tabela e sem lista longa.
 
@@ -26,7 +31,7 @@ Responda no idioma da mensagem dele. Curto. Sem tabela e sem lista longa.
 1. Leia `locales/pt-BR/resume.json` antes de julgar. Use só fatos de `personal`, `highlights`, `experience`, `skills` e `education`.
 2. `en`, `es` e `fr` são traduções.
 3. Inglês: B1 ou B2, ele ainda não cravou. O "Proficiência Profissional" do JSON não vale para este julgamento.
-4. Não invente salário atual. Se ele disser que a oferta paga mais, use essa comparação. Não complete o resto do currículo com memória nem com a web.
+4. Não invente salário atual nem o valor da oferta. Se a vaga que ele enviou não declara salário, o salário possivelmente é maior do que o de hoje. Se ele disser que a oferta paga mais, use essa comparação. Não complete o resto do currículo com memória nem com a web.
 5. Não edite o currículo, não envie e-mail e não se candidate. O currículo direcionado é outra skill, `/cv-vaga`.
 6. Duas restrições dele, fora do JSON. Não diga que estão ausentes no currículo. Não escreva as duas no currículo.
 
@@ -57,7 +62,7 @@ Angular como tag não é especialidade de frontend. Miolo em tela: **Não**. Bac
 
 Diploma é filtro de papel. Uma frase. Não muda se ele conseguiria fazer o trabalho.
 
-Cargo Senior, com o mesmo tipo de trabalho e salário maior, não é falta de capacidade. Não trate o título Staff do currículo como motivo para recusar.
+Cargo Senior, com o mesmo tipo de trabalho e salário maior, não é falta de capacidade. Não trate o título Staff do currículo como motivo para recusar. Não recuse entrega sênior de features por falta de desafio incomum ou de cultura de engenharia.
 
 ## Tem fit?
 
@@ -75,8 +80,10 @@ Vaga em português: inglês não entra no fit.
 
 ## É interessante?
 
-- **Sim** — conseguiria e tem fit. Se ele disse que paga mais do que ganha hoje, diga isso numa frase.
-- **Ainda não** — fit parcial ou sem fit. Se o salário é maior, diga que o dinheiro interessaria se o fit fechasse, e diga o que falta.
+- **Sim** — ele conseguiria (Sim ou Sim, aprendendo), a vaga é remota e o nível não é estágio nem júnior. Fit parcial não impede: diga o que falta. Cite faixa, bônus ou equity se a vaga declarar. Se ele disse que paga mais do que ganha hoje, use essa comparação. Sem número na vaga que ele enviou, diga que o salário possivelmente é maior do que o de hoje. Não invente o valor.
+- **Ainda não** — ele não conseguiria, não é remota, ou a remuneração declarada é de estágio, júnior ou não remunerada.
+
+Não escreva que a vaga interessa porque o problema é bonito, porque ele cresceria ou porque combina com o que ele gosta. Não escreva "não avançar" porque a vaga é entrega de features.
 
 ## Currículo direcionado
 
@@ -84,7 +91,7 @@ Vaga em português: inglês não entra no fit.
 
 Sugira `/cv-vaga` só quando **Interessante** for sim. Diga para invocar com a descrição completa da vaga. Não resuma a vaga no lugar dela.
 
-Se o fit for parcial ou não houver fit, não sugira.
+Se **Interessante** for ainda não, não sugira. Fit parcial não impede a sugestão.
 
 ## Resposta
 
@@ -92,6 +99,6 @@ Cinco frases no máximo.
 
 1. **Conseguiria:** Sim, Sim aprendendo X, ou Não. O porquê numa frase.
 2. **Fit:** Sim, Parcial ou Não. O porquê numa frase, com o inglês quando a vaga opera em inglês.
-3. **Interessante:** Sim ou Ainda não. O salário só entra aqui, se ele tiver comparado com o que ganha hoje.
+3. **Interessante:** Sim ou Ainda não, numa frase, pelo retorno. Com fit parcial, inclua o que falta. Inclua a faixa se a vaga declarar, ou a comparação se ele tiver feito. Sem número, diga que o salário possivelmente é maior do que o de hoje.
 4. Filtro de papel, se houver.
 5. Se for interessante, uma frase: invocar `/cv-vaga` com a descrição completa da vaga.
