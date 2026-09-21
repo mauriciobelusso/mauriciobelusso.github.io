@@ -5,8 +5,9 @@ description: >
   o trabalho, se tem fit e se a vaga é interessante. Use quando ele colar uma
   JD, link de vaga, ou perguntar se conseguiria fazer, se tem fit, se daria
   conta ou se deve se candidatar. Inglês dele é B1 ou B2, ainda incerto. Lê
-  locales/pt-BR/resume.json. A resposta é curta. Se for interessante, sugira
-  /cv-vaga com a descrição completa. Não gere o currículo nesta skill.
+  locales/pt-BR/resume.json.   A resposta é curta. Interessante significa retorno financeiro. Se for
+  interessante, sugira /cv-vaga com a descrição completa. Não gere o
+  currículo nesta skill.
 ---
 
 # Do ponto de vista dele
@@ -17,9 +18,9 @@ Responda três coisas, nesta ordem:
 2. Ele tem fit com a vaga?
 3. É interessante?
 
-O trabalho é para pagar as contas. Ele avalia salário acima de desafio, cultura de engenharia e crescimento profissional. Salário maior não cria fit técnico. Desafio, cultura e crescimento não vetam e não são motivo para não avançar.
+Ele trabalha para ficar rico. O critério é retorno financeiro: salário, bônus e participação com valor declarado. Salário maior não cria fit técnico. Gosto, realização profissional, desafio, cultura de engenharia e crescimento ficam fora do julgamento.
 
-Entrega sênior de features em startup, CRUD ou ausência de desafio fora do comum não bloqueiam. Se o miolo técnico encosta e a vaga é remota, ela segue.
+Entrega sênior de features em startup, CRUD ou ausência de desafio fora do comum não bloqueiam. Se o miolo técnico encosta e a vaga é remota, ela segue. O que decide é o retorno.
 
 Responda no idioma da mensagem dele. Curto. Sem tabela e sem lista longa.
 
@@ -77,10 +78,10 @@ Vaga em português: inglês não entra no fit.
 
 ## É interessante?
 
-- **Sim** — ele conseguiria (Sim ou Sim, aprendendo), a vaga é remota e o nível não é estágio nem júnior. Fit parcial não impede: diga o que falta. Se a vaga declara faixa, ou se ele disse que paga mais do que ganha hoje, cite isso. Sem número, diga que a decisão é o salário. Não invente pretensão.
+- **Sim** — ele conseguiria (Sim ou Sim, aprendendo), a vaga é remota e o nível não é estágio nem júnior. Fit parcial não impede: diga o que falta. Cite faixa, bônus ou equity se a vaga declarar. Se ele disse que paga mais do que ganha hoje, use essa comparação. Sem número, diga que a decisão é o retorno. Não invente pretensão.
 - **Ainda não** — ele não conseguiria, não é remota, ou a remuneração declarada é de estágio, júnior ou não remunerada.
 
-Não use desafio incomum, cultura de engenharia nem crescimento profissional nesta resposta. Não escreva "não avançar" porque a vaga é entrega de features.
+Não escreva que a vaga interessa porque o problema é bonito, porque ele cresceria ou porque combina com o que ele gosta. Não escreva "não avançar" porque a vaga é entrega de features.
 
 ## Currículo direcionado
 
@@ -96,6 +97,6 @@ Cinco frases no máximo.
 
 1. **Conseguiria:** Sim, Sim aprendendo X, ou Não. O porquê numa frase.
 2. **Fit:** Sim, Parcial ou Não. O porquê numa frase, com o inglês quando a vaga opera em inglês.
-3. **Interessante:** Sim ou Ainda não, numa frase. Com fit parcial, inclua o que falta. Inclua a faixa se a vaga declarar, ou a comparação se ele tiver feito. Sem número, diga que a decisão é o salário.
+3. **Interessante:** Sim ou Ainda não, numa frase, pelo retorno. Com fit parcial, inclua o que falta. Inclua a faixa se a vaga declarar, ou a comparação se ele tiver feito. Sem número, diga que a decisão é o retorno.
 4. Filtro de papel, se houver.
 5. Se for interessante, uma frase: invocar `/cv-vaga` com a descrição completa da vaga.

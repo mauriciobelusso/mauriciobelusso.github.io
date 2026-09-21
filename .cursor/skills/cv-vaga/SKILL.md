@@ -30,7 +30,7 @@ Mantenha iguais: empresas, períodos, formação, contatos, idiomas, blocos `ui`
 
 Copie `meta.lang` do arquivo de origem.
 
-Ele é AuDHD e precisa trabalhar remoto. Não escreva nenhum dos dois no currículo, a menos que ele peça.
+Ele é AuDHD, precisa trabalhar remoto e trabalha por retorno financeiro. Não escreva nenhum dos três no currículo, a menos que ele peça.
 
 ## Selar
 
