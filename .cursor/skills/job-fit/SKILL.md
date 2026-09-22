@@ -6,8 +6,9 @@ description: >
   daria conta ou se deve se candidatar. Ele está dentro quando consegue
   entregar, a vaga é remota e o salário atinge. Inglês dele é B1 ou B2,
   ainda incerto. Lê locales/pt-BR/resume.json. A resposta indica o que ele
-  atende e o que falta. Não use "fora da barra". Se estiver dentro, sugira
-  /cv-vaga com a descrição completa. Não gere o currículo nesta skill.
+  atende e o que falta. Não use "fora da barra". Se estiver dentro e faltar
+  habilidade, pergunte na mesma conversa em qual experiência ela entra e onde.
+  Não gere o currículo nesta skill.
 ---
 
 # Dentro da vaga
@@ -86,16 +87,16 @@ Vaga que opera em inglês (descrição, entrevista, produto, time): indique que 
 
 `/cv-vaga` gera um currículo novo a partir da descrição da vaga e devolve um link cifrado. Esta skill não gera esse currículo.
 
-Sugira `/cv-vaga` só quando ele estiver **dentro**. Diga para invocar com a descrição completa da vaga. Não resuma a vaga no lugar dela.
+Se ele estiver **dentro** e faltar habilidade pedida pela vaga, pergunte na mesma conversa, antes de sugerir o comando. Uma pergunta por habilidade: em qual experiência ela entra, e onde (achievement, stack ou os dois). Não invente a experiência. Preferência ausente entra na pergunta do mesmo jeito. Se não falta nada, uma frase: invocar `/cv-vaga` com a descrição completa da vaga.
 
-Se ele não estiver dentro, não sugira.
+Se ele não estiver dentro, não pergunte e não sugira.
 
 ## Resposta
 
-Cinco frases no máximo.
+Cinco frases no máximo, e depois as perguntas.
 
 1. **Dentro** ou **Não**. A frase diz entrega, remoto e salário.
 2. O que ele atende, numa frase, com fato do currículo.
 3. O que falta, se faltar. Preferência ausente não tira ele de dentro.
 4. Filtro de papel, se houver.
-5. Se estiver dentro, uma frase: invocar `/cv-vaga` com a descrição completa da vaga.
+5. Se estiver dentro e faltar habilidade, as perguntas de experiência e de lugar. Se não faltar nada, uma frase para invocar `/cv-vaga` com a descrição completa da vaga.
