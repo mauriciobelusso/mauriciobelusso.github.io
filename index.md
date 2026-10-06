@@ -10,6 +10,10 @@ Engenheiro de backend. Escrevo o que já medi em JVM, fila e custo de pod. Os n�
   <li>
     <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     — {{ post.date | date: "%d.%m.%Y" }}
+    {% if post.tags.size > 0 %}
+    <br>
+    {% for tag in post.tags %}{{ tag }}{% unless forloop.last %} · {% endunless %}{% endfor %}
+    {% endif %}
     <br>
     {{ post.excerpt | strip_html }}
   </li>
