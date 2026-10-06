@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<p><a href="{{ '/' | relative_url }}">Notas</a></p>
+
+<small>{{ page.date | date: "%d.%m.%Y" }}</small>
+<h1>{{ page.title }}</h1>
+
+{% if page.tags.size > 0 %}
+<p>
+  {% for tag in page.tags %}{{ tag }}{% unless forloop.last %} · {% endunless %}{% endfor %}
+</p>
+{% endif %}
+
+{{ content }}
