@@ -96,7 +96,7 @@
       "metric": "300k Enregistrements / Batch",
       "tag": "Restriction de crédit",
       "title": "Traitement par lots à haute scalabilité",
-      "description": "J'ai conçu des flux scalables sur AWS SQS pour l'annotation et la conciliation de crédit privé (PEFIN, REFIN et CONVEM), traitant jusqu'à 300 000 CPF/CNPJ en une seule exécution sans impact sur la disponibilité.",
+      "description": "J'ai conçu des flux scalables sur AWS SQS pour des annotations de crédit privé, traitant jusqu'à 300 000 CPF/CNPJ en une seule exécution sans impact sur la disponibilité.",
       "diagram": {
         "type": "flow",
         "title": "Lot de restriction de crédit découplé de l’API",
@@ -113,7 +113,7 @@
           },
           {
             "title": "Workers",
-            "sub": "rapprochement",
+            "sub": "annotations",
             "tone": "happy"
           }
         ]

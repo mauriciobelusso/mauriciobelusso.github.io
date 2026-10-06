@@ -96,7 +96,7 @@
       "metric": "300k Registros / Batch",
       "tag": "Restricción de Crédito",
       "title": "Procesamiento por Lotes de Alta Escalabilidad",
-      "description": "Arquitecté flujos escalables en AWS SQS para anotación y conciliación de crédito privado (PEFIN, REFIN y CONVEM) procesando hasta 300 mil CPF/CNPJ en una sola ejecución sin impacto en la disponibilidad.",
+      "description": "Arquitecté flujos escalables en AWS SQS para anotaciones de crédito privado, procesando hasta 300 mil CPF/CNPJ en una sola ejecución sin impacto en la disponibilidad.",
       "diagram": {
         "type": "flow",
         "title": "Lote de restricción de crédito desacoplado de la API",
@@ -113,7 +113,7 @@
           },
           {
             "title": "Workers",
-            "sub": "conciliación",
+            "sub": "anotaciones",
             "tone": "happy"
           }
         ]

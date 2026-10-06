@@ -5,12 +5,12 @@ date: 2026-10-03
 tags:
   - Restrição de Crédito
   - SQS
-excerpt: Anotação e conciliação de crédito, até 300 mil CPFs e CNPJs numa execução, seguem por SQS. A API que aceita o trabalho continua disponível.
+excerpt: Anotações de crédito, até 300 mil CPFs e CNPJs numa execução, seguem por SQS. A API que aceita o trabalho continua disponível.
 ---
 
-Anotação e conciliação de crédito (PEFIN, REFIN e CONVEM) chegam a 300 mil CPFs e CNPJs numa execução. Esse volume não cabe num pedido HTTP. O tempo estoura o gateway, o retry do cliente reenvia o que já andou, e o pico aparece como tráfego da API.
+Anotações de crédito chegam a 300 mil CPFs e CNPJs numa execução. Esse volume não cabe num pedido HTTP. O tempo estoura o gateway, o retry do cliente reenvia o que já andou, e o pico aparece como tráfego da API.
 
-A API aceita o trabalho e devolve. A mensagem vai para o SQS. O worker anota e concilia. O lote pode demorar, repetir e falhar. A thread do pedido não espera.
+A API aceita o trabalho e devolve. A mensagem vai para o SQS. O worker faz a anotação. O lote pode demorar, repetir e falhar. A thread do pedido não espera.
 
 Três regras mantêm a fila honesta:
 
