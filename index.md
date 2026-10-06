@@ -3,7 +3,7 @@ layout: default
 title: Notas de produção
 ---
 
-Engenheiro de backend. Escrevo o que já medi em JVM, fila e custo de pod. Os números são os do [currículo]({{ '/cv.html' | relative_url }}), com o mecanismo em volta.
+Engenheiro backend em sistemas distribuídos. Atuo da correção de vazamento e do runtime da JVM à modernização de monolito, fila, observabilidade e custo. Os números publicados são os do [currículo]({{ '/cv.html' | relative_url }}), com o mecanismo em volta.
 
 <ul>
   {% for post in site.posts %}
