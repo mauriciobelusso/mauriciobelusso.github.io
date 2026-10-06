@@ -5,11 +5,13 @@ date: 2026-10-05 21:40:00 -0300
 tags:
   - Kafka
   - AWS
-excerpt: As bibliotecas novas já trazem o produtor idempotente. Falta cravar a permissão na AWS, o nível dela, e medir se Kafka vale a pena no processo.
+excerpt: As bibliotecas novas já vêm com o produtor idempotente. Ainda é preciso definir a permissão na AWS, o nível dela, e medir se Kafka vale a pena no processo.
 ---
 
-Hoje integrei um processo com Kafka. As bibliotecas novas já vêm com o produtor idempotente. Isso vale para o reenvio do cliente. Confirma-se na configuração que ficou no ar, não só no padrão da biblioteca.
+Hoje integrei um processo com Kafka. As bibliotecas novas já vêm com o produtor idempotente. Ele evita que um reenvio do cliente grave a mesma mensagem duas vezes. Isso precisa estar na configuração que está no ar, não só no padrão da biblioteca.
 
-O que pede atenção é a permissão na AWS. Quais permissões se concedem, e quão amplas elas são. A biblioteca não escolhe isso.
+Na nota do lote, a anotação tem de ser idempotente porque a fila entrega a mensagem de novo. Aqui a biblioteca cobre só o reenvio do produtor. O efeito dentro do processo continua sendo outra verificação.
 
-O outro ponto é medir se Kafka vale a pena neste processo. O que importa é o processo aguentar repetição sem duplicar efeito, com permissão no tamanho do que ele faz. Esse valor ainda não está medido.
+O ponto de atenção é a permissão na AWS: quais permissões o processo recebe, e quão amplas elas são. A biblioteca não escolhe isso.
+
+Também falta medir se Kafka vale a pena neste processo. A conta é se ele aguenta repetição sem duplicar efeito, com permissão limitada ao que o processo precisa fazer. Esse valor ainda não está medido.
