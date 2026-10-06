@@ -4,7 +4,7 @@ title: Sobre
 permalink: /sobre/
 ---
 
-Staff Backend Engineer na Verx. Trabalho com sistemas distribuídos, runtime da JVM e o custo do que está no ar. Estas notas cobrem quatro resultados que já estão no [currículo]({{ '/cv.html' | relative_url }}). Aqui entra o mecanismo. O número não muda.
+Staff Backend Engineer na Verx. Trabalho com arquitetura e sistemas distribuídos. Cargos, números e stack estão no [currículo]({{ '/cv.html' | relative_url }}).
 
 Estou aberto a conversas sobre arquitetura, sistemas em produção e otimização de custo em nuvem. Escrevo em português. Meu inglês é intermediário, B1–B2.
 
