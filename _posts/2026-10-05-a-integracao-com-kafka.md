@@ -8,7 +8,7 @@ tags:
 excerpt: As bibliotecas novas já vêm com o produtor idempotente. O processo usa outbox e inbox. Ainda é preciso definir a permissão na AWS e medir se Kafka vale a pena.
 ---
 
-Hoje integrei um processo com Kafka. As bibliotecas novas já vêm com o produtor idempotente. Ele evita que um reenvio do cliente grave a mesma mensagem duas vezes. A configuração que está no ar precisa ser esta, não só o padrão da biblioteca:
+Integrei um processo com Kafka. As bibliotecas novas já vêm com o produtor idempotente, que evita que um reenvio do cliente grave a mesma mensagem duas vezes. A configuração que está no ar precisa ser esta, não só o padrão da biblioteca:
 
 ```properties
 enable.idempotence=true
@@ -16,11 +16,9 @@ acks=all
 max.in.flight.requests.per.connection=5
 ```
 
-`acks=all` é exigência do produtor idempotente. Mais de cinco pedidos em voo também quebra esse modo.
+`acks=all` é exigência do produtor idempotente, e mais de cinco pedidos em voo também quebra esse modo. Essa configuração cobre o reenvio do cliente para o cluster. Não cobre o processo: gravar a mudança e publicar a mensagem ainda podem se separar, e o processo publica de novo.
 
-O produtor idempotente cobre o reenvio do cliente para o cluster. Não cobre o processo. Na mensageria, usei o mesmo par da nota do lote: outbox na saída e inbox na entrada.
-
-O outbox grava a mensagem na mesma transação da mudança. Um publicador lê essa tabela e envia ao tópico. Se ele marca a linha como enviada só depois do envio, uma falha no meio publica de novo. O inbox do outro lado descarta essa repetição.
+O par que fecha essa separação é outbox na saída e inbox na entrada. O outbox grava a mensagem na mesma transação da mudança. Um publicador lê essa tabela e envia ao tópico. Se ele marca a linha como enviada só depois do envio, uma falha no meio publica de novo. O inbox do outro lado descarta essa repetição.
 
 ```java
 @Transactional
@@ -47,7 +45,7 @@ void tratar(String id) {
 
 A biblioteca não substitui esse par. Ela só segura o reenvio de `kafka.enviar`.
 
-O ponto de atenção é a permissão na AWS, quando o cluster é MSK e o cliente usa IAM. A biblioteca não escolhe essa policy. `WriteData` no tópico não basta: a partir do Kafka 2.8, a escrita idempotente pede `kafka-cluster:WriteDataIdempotently` no cluster. Essa ação não funciona se estiver só no tópico. O `transactional-id` também entra, mesmo sem uma transação de negócio.
+Quando o cluster é MSK e o cliente usa IAM, esse envio ainda depende de uma permissão que a biblioteca não escolhe. `WriteData` no tópico não basta: a partir do Kafka 2.8, a escrita idempotente pede `kafka-cluster:WriteDataIdempotently` no cluster. Essa ação não funciona se estiver só no tópico. O `transactional-id` também entra, mesmo sem uma transação de negócio.
 
 Quem só publica fica neste nível. Sem `kafka-cluster:*`, sem criar tópico e sem ler.
 
@@ -114,4 +112,4 @@ Quem só consome não recebe escrita. Recebe leitura no tópico e o grupo dele:
 }
 ```
 
-Também falta medir se Kafka vale a pena neste processo. A conta é se ele aguenta repetição sem duplicar efeito, com essa permissão e não com acesso ao cluster inteiro. Esse valor ainda não está medido.
+O que ainda falta medir segue dessa conta: se Kafka vale a pena neste processo é se ele aguenta repetição sem duplicar efeito, com essa permissão e não com acesso ao cluster inteiro. Esse valor ainda não está medido.

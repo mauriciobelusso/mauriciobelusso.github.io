@@ -1,9 +1,7 @@
 ---
 layout: default
-title: Notas de produção
+title: Blog
 ---
-
-Notas sobre sistemas em produção. Cargos, números e stack estão no [currículo]({{ '/cv.html' | relative_url }}).
 
 <ul>
   {% for post in site.posts %}
@@ -19,3 +17,5 @@ Notas sobre sistemas em produção. Cargos, números e stack estão no [currícu
   </li>
   {% endfor %}
 </ul>
+
+<p><a href="{{ '/sobre/' | relative_url }}">Sobre</a></p>
