@@ -4,11 +4,11 @@ title: O layout saiu do deploy
 date: 2026-10-02
 tags:
   - Autonomia Operacional
-excerpt: Documentos de notificação passaram de semanas de código para publicação na hora. A operação publica o layout. O motor substitui as variáveis.
+excerpt: Documentos de notificação levavam semanas porque cada layout era código e deploy. A operação passou a publicar o modelo, e o motor substitui as variáveis.
 ---
 
-Documentos de notificação levavam semanas para mudar. Cada layout novo era código, revisão e deploy.
+Documentos de notificação levavam semanas para mudar. Cada layout novo era código, passava por revisão e só saía num deploy.
 
-O motor trata o layout como dado. A operação publica o modelo, o renderer substitui as variáveis e o documento sai. Não há commit para trocar um parágrafo. O código que fica lê o modelo, preenche e gera o arquivo. Esse código muda pouco. O texto muda sempre.
+O motor passou a tratar o layout como dado. A operação publica o modelo. O motor lê esse modelo, substitui as variáveis e gera o arquivo. Trocar um parágrafo não exige commit. O código que permanece muda pouco. O texto muda sempre.
 
-O prazo medido foi de semanas para a publicação na hora. O escopo é o documento de notificação, não um gerador de qualquer arquivo da empresa.
+O prazo medido foi de semanas para a publicação na hora. Isso vale para o documento de notificação, não para qualquer arquivo da empresa.

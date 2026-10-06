@@ -5,17 +5,17 @@ date: 2026-10-03
 tags:
   - Restrição de Crédito
   - SQS
-excerpt: Anotações de crédito, até 300 mil CPFs e CNPJs numa execução, seguem por SQS. A API que aceita o trabalho continua disponível.
+excerpt: Anotações de crédito, até 300 mil CPFs e CNPJs numa execução, vão para o SQS. A API aceita o trabalho e continua disponível.
 ---
 
-Anotações de crédito chegam a 300 mil CPFs e CNPJs numa execução. Esse volume não cabe num pedido HTTP. O tempo estoura o gateway, o retry do cliente reenvia o que já andou, e o pico aparece como tráfego da API.
+Anotações de crédito chegam a 300 mil CPFs e CNPJs numa execução. Esse volume não cabe num pedido HTTP. O pedido passa do tempo do gateway, o cliente tenta de novo e reenvia o que já tinha andado. O pico aparece como tráfego da API.
 
-A API aceita o trabalho e devolve. A mensagem vai para o SQS. O worker faz a anotação. O lote pode demorar, repetir e falhar. A thread do pedido não espera.
+Por isso a API só aceita o trabalho e responde. A mensagem vai para o SQS. O worker faz a anotação. O lote pode demorar, repetir ou falhar. A thread do pedido não espera.
 
-Três regras mantêm a fila honesta:
+Três regras evitam que a fila duplique trabalho ou pare:
 
-- A anotação é idempotente. A fila entrega outra vez.
-- A visibilidade da mensagem cobre o pior processamento daquele item. Se a mensagem volta enquanto o worker ainda está no meio, dois workers disputam o mesmo documento.
-- O que falha sempre sai da fila principal. Um item ruim não segura o lote.
+- A anotação é idempotente. A fila pode entregar a mesma mensagem outra vez, e o efeito não pode dobrar.
+- O tempo de visibilidade da mensagem cobre o pior processamento daquele item. Se a mensagem volta enquanto o worker ainda trabalha, dois workers pegam o mesmo documento.
+- O que falha sempre sai da fila principal. Um item ruim não pode segurar o lote.
 
 No ar, são 300 mil registros numa execução, e a API continua disponível.
