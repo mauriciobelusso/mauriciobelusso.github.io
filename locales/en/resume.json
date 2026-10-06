@@ -96,7 +96,7 @@
       "metric": "300k Records / Batch",
       "tag": "Credit Restriction",
       "title": "Highly Scalable Batch Processing",
-      "description": "Architected scalable AWS SQS flows for private credit annotation and reconciliation (PEFIN, REFIN, and CONVEM), processing up to 300 thousand tax IDs (CPF/CNPJ) in a single run with no impact on availability.",
+      "description": "Architected scalable AWS SQS flows for private credit annotations, processing up to 300 thousand tax IDs (CPF/CNPJ) in a single run with no impact on availability.",
       "diagram": {
         "type": "flow",
         "title": "Credit-restriction batch decoupled from the API",
@@ -113,7 +113,7 @@
           },
           {
             "title": "Workers",
-            "sub": "reconcile",
+            "sub": "annotations",
             "tone": "happy"
           }
         ]
