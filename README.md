@@ -1,9 +1,9 @@
 # mauriciobelusso.github.io
 
-Blog de notas de produção, publicado em [mauriciobelusso.dev](https://mauriciobelusso.dev).
+Blog publicado em [blog.mauriciobelusso.dev](https://blog.mauriciobelusso.dev).
 O GitHub Pages gera o site com Jekyll e o tema `jekyll-theme-minimal`.
 
-O currículo A4 continua em [`cv.html`](cv.html), lendo o JSON em [`locales/`](locales/).
+O currículo fica em [mauriciobelusso.dev](https://mauriciobelusso.dev).
 
 ## Local
 
@@ -12,15 +12,11 @@ bundle install
 bundle exec jekyll serve
 ```
 
-- Notas: http://localhost:4000/
+- Blog: http://localhost:4000/
 - Sobre: http://localhost:4000/sobre/
-- Currículo: http://localhost:4000/cv.html
-
-O currículo busca JSON no browser. `file://` não serve.
 
 ## O que é página
 
-- [`_posts/`](_posts/) — notas
-- [`sobre.md`](sobre.md)
+- [`_posts/`](_posts/) — artigos
 - [`index.md`](index.md) — lista
-- [`cv.html`](cv.html) e [`locales/`](locales/) — currículo, fora do layout do blog
+- [`sobre.md`](sobre.md)

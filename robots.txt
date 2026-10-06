@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mauriciobelusso.dev/sitemap.xml
+Sitemap: https://blog.mauriciobelusso.dev/sitemap.xml
