@@ -1,0 +1,15 @@
+Blog Jekyll com o tema jekyll-theme-minimal.
+
+Os arquivos desta pasta são o site. historico.bundle contém os quatro commits.
+
+Para publicar no GitHub:
+
+  git clone historico.bundle site
+  cd site
+  git push URL-DO-REPOSITORIO cursor/jekyll-blog-9430:main
+
+Commits, do mais antigo ao mais novo:
+  4de51c6 Publica o portfólio.
+  82af67c Publica o blog de notas de produção em Jekyll.
+  2fc22bc Pinta o link do texto na cor do blog e mantém o menu neutro.
+  287470f Usa o tema jekyll-theme-minimal do GitHub Pages.

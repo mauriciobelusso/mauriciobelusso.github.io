@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "lang": "es"
+  },
+  "ui": {
+    "navAbout": "// sobre",
+    "navHighlights": "// logros",
+    "navExperience": "// experiencia",
+    "navStack": "// stack",
+    "navEducation": "// formacion",
+    "navContact": "canal_tecnico()",
+    "ctaGithub": "Perfil de GitHub →",
+    "ctaLinkedin": "Perfil de LinkedIn →",
+    "ctaCv": "Descargar currículum (A4)",
+    "ctaGithubShort": "Perfil de GitHub",
+    "ctaLinkedinShort": "Perfil de LinkedIn",
+    "highlightsKicker": "// Impacto Medible & FinOps",
+    "highlightsTitle": "Resultados de Ingeniería en Producción",
+    "experienceKicker": "// Carrera e Historial",
+    "experienceTitle": "Trayectoria Profesional",
+    "skillsKicker": "// Stack y Habilidades",
+    "skillsTitle": "Habilidades técnicas",
+    "educationKicker": "// Formación y Desarrollo Continuo",
+    "educationTitle": "Educación y Cualificaciones",
+    "educationAcademicLabel": "Formación Académica",
+    "languagesLabel": "Idiomas",
+    "contactKicker": "// Contacto",
+    "contactTags": "Arquitectura · Sistemas distribuidos · FinOps",
+    "footer": "© {year} Mauricio Belusso. Datos en locales/{lang}/resume.json.",
+    "loading": "Cargando…",
+    "loadingResume": "Cargando currículum…",
+    "loadError": "No fue posible cargar el currículum. Sirva el sitio por HTTP (p. ej. GitHub Pages o un servidor local).",
+    "emailSubject": "Arquitectura y sistemas distribuidos",
+    "langSwitcherAria": "Seleccionar idioma",
+    "cvBack": "← Notas",
+    "cvPrint": "Imprimir / guardar PDF",
+    "cvTitleSuffix": "Currículum",
+    "cvImpact": "Impacto",
+    "cvExperience": "Experiencia",
+    "cvStack": "Stack",
+    "cvEducation": "Formación",
+    "cvLanguages": "Idiomas",
+    "cvMobileHint": "Toca \"Imprimir / guardar PDF\" abajo para generar el archivo. En algunos móviles, la descarga automática puede generar un archivo vacío (0 KB)."
+  },
+  "personal": {
+    "name": "Mauricio Belusso",
+    "title": "Staff Backend & Platform Engineer",
+    "summary": "Ingeniero backend en sistemas distribuidos y optimización de runtime de la JVM en producción. En FinOps, reduje el costo de cómputo en AWS EKS en un 85%. Trabajo con Virtual Threads en Java 25 LTS y pipelines batch de cientos de miles de registros. El alcance va de la corrección de fugas de memoria a la modernización de monolitos legados hacia plataformas desacopladas y observables.",
+    "availability": "Arquitectura y sistemas distribuidos",
+    "contactHeadline": "Arquitectura, sistemas distribuidos y costo de infraestructura.",
+    "contactBody": "Estoy abierto a conversaciones sobre arquitectura, sistemas en producción y optimización de costo en la nube.",
+    "contactCta": "Hablar conmigo",
+    "email": "mauriciobelusso@gmail.com",
+    "github": "https://github.com/mauriciobelusso",
+    "linkedin": "https://www.linkedin.com/in/mauriciobelusso",
+    "location": "Brasil",
+    "languages": [
+      {
+        "name": "Portugués",
+        "level": "Nativo"
+      },
+      {
+        "name": "Inglés",
+        "level": "Intermedio, B1-B2"
+      }
+    ]
+  },
+  "highlights": [
+    {
+      "metric": "-85% Costos AWS EKS",
+      "tag": "Troubleshooting & Memory Leak",
+      "title": "Optimización de API Transaccional de Alta Frecuencia",
+      "description": "Diagnostiqué, con profiling avanzado, y corregí una fuga de memoria crítica en un endpoint expuesto a robots de automatización. Reduje la infraestructura necesaria de 12 pods (3GB RAM cada uno) a solo 1-2 pods (1.5GB RAM), eliminando caídas por Out-of-Memory (OOM) en producción.",
+      "diagram": {
+        "type": "compare",
+        "title": "Doce pods en OOM reducidos a uno o dos pods estables",
+        "caption": "El profiling recorta el heap. El cómputo en EKS baja 85%.",
+        "bridge": "profiling",
+        "before": {
+          "kicker": "antes",
+          "value": "12",
+          "unit": "pods × 3 GB",
+          "detail": "OOM en producción",
+          "marks": 12
+        },
+        "after": {
+          "kicker": "después",
+          "value": "1–2",
+          "unit": "pods × 1,5 GB",
+          "detail": "sin caída",
+          "marks": 2
+        }
+      }
+    },
+    {
+      "metric": "300k Registros / Batch",
+      "tag": "Restricción de Crédito",
+      "title": "Procesamiento por Lotes de Alta Escalabilidad",
+      "description": "Arquitecté flujos escalables en AWS SQS para anotación y conciliación de crédito privado (PEFIN, REFIN y CONVEM) procesando hasta 300 mil CPF/CNPJ en una sola ejecución sin impacto en la disponibilidad.",
+      "diagram": {
+        "type": "flow",
+        "title": "Lote de restricción de crédito desacoplado de la API",
+        "caption": "Hasta 300 mil CPF/CNPJ. La API sigue disponible.",
+        "nodes": [
+          {
+            "title": "Entrada",
+            "sub": "anotación"
+          },
+          {
+            "title": "SQS",
+            "sub": "cola",
+            "tone": "data"
+          },
+          {
+            "title": "Workers",
+            "sub": "conciliación",
+            "tone": "happy"
+          }
+        ]
+      }
+    },
+    {
+      "metric": "100 mcores → 30 mcores",
+      "metrics": [
+        "100 mcores → 30 mcores",
+        "1,3 GB → 900 MB"
+      ],
+      "tag": "Virtual Threads (Loom)",
+      "title": "Migración a Java 25 LTS y Virtual Threads",
+      "description": "Conduje la modernización de microservicios de Java 8 a 25 LTS. Adopté Virtual Threads reduciendo en 70% el consumo medio de CPU y la memoria de 1,3 GB a 900 MB — nivel mantenido bajo alta carga — y mitigando bloqueos de hilos físicos (carrier thread pinning) en bloques sincronizados.",
+      "diagram": {
+        "type": "compare",
+        "variant": "threads",
+        "title": "Hilo de plataforma bloqueado frente a virtual thread en Java 25",
+        "caption": "CPU de 100 a 30 mcores. Memoria de 1,3 GB a 900 MB bajo carga.",
+        "bridge": "Loom",
+        "before": {
+          "kicker": "Java 8",
+          "value": "100",
+          "unit": "mcores",
+          "detail": "1,3 GB",
+          "note": "synchronized"
+        },
+        "after": {
+          "kicker": "Java 25",
+          "value": "30",
+          "unit": "mcores",
+          "detail": "900 MB",
+          "note": "virtual thread"
+        }
+      }
+    },
+    {
+      "metric": "Semanas → Instantáneo",
+      "tag": "Autonomía Operativa",
+      "title": "Motor Dinámico de Sustitución de Variables",
+      "description": "Desarrollé un motor de renderizado de documentos de notificación. El equipo operativo publica nuevos layouts sin código ni despliegues.",
+      "diagram": {
+        "type": "flow",
+        "title": "La operación publica el layout sin despliegue",
+        "caption": "Lo que llevaba semanas sale al momento.",
+        "nodes": [
+          {
+            "title": "Operación",
+            "sub": "layout"
+          },
+          {
+            "title": "Motor",
+            "sub": "variables",
+            "tone": "happy"
+          },
+          {
+            "title": "Documento",
+            "sub": "al instante"
+          }
+        ]
+      }
+    }
+  ],
+  "experience": [
+    {
+      "company": "Verx Tecnologia e Inovação",
+      "role": "Staff Backend Engineer / Platform Architect",
+      "period": "Ene 2025 – Presente",
+      "achievements": [
+        "Liderazgo en la reducción del 85% del costo de infraestructura de una API crítica en AWS EKS.",
+        "Arquitectura de soluciones batch desacopladas vía AWS SQS para el procesamiento de registros de restricción de crédito.",
+        "Canales en tiempo real con WebSockets autenticados nativos y cargas desacopladas vía S3 Signed URLs.",
+        "Migración continua del ecosistema de microservicios hasta Java 25 LTS con Virtual Threads, reduciendo CPU de 100 a 30 mcores y memoria de 1,3 GB a 900 MB incluso bajo alta carga.",
+        "Tuning de base de datos NoSQL (MongoDB), análisis de explain plans y aplicación de índices vía Mongock sin bloqueos de deploy."
+      ],
+      "stack": [
+        "Java 25",
+        "Spring Boot",
+        "AWS EKS",
+        "AWS S3",
+        "AWS SQS",
+        "MongoDB",
+        "Mongock",
+        "Angular"
+      ]
+    },
+    {
+      "company": "Softfocus",
+      "role": "Senior Software Engineer / Backend Architect",
+      "period": "Nov 2023 – Nov 2024",
+      "achievements": [
+        "Desarrollo de un framework propietario de inyección de dependencias por anotaciones para desacoplar un monolito legado, reduciendo los defectos en producción en un 60% y la complejidad estructural del código en un 70%.",
+        "Integración de sistemas transaccionales críticos con instituciones financieras y cooperativas de crédito vía APIs REST seguras conectadas al BACEN, garantizando el cumplimiento normativo en flujos de datos sensibles."
+      ],
+      "stack": [
+        "Java",
+        "PostgreSQL",
+        "Docker",
+        "REST APIs",
+        "Angular"
+      ]
+    },
+    {
+      "company": "Mirante Tecnologia",
+      "role": "Technical Lead / Solutions Architect",
+      "period": "Mar 2023 – Nov 2023",
+      "achievements": [
+        "Definí el stack y la arquitectura del proyecto de automatización de edictos públicos (INCRA).",
+        "Ingeniería del módulo de generación automatizada de edictos, eliminando procesos manuales y comprimiendo el tiempo de elaboración de documentos.",
+        "Implementación de firma digital con certificado ICP-Brasil e integración de autenticación vía gov.br, viabilizando la inscripción directa de candidatos con validez jurídica.",
+        "Estructuración del pipeline CI/CD (GitLab) desde la concepción del proyecto, automatizando build, pruebas y deploy."
+      ],
+      "stack": [
+        "Java",
+        "GitLab CI/CD",
+        "gov.br",
+        "Certificado Digital",
+        "Angular"
+      ]
+    },
+    {
+      "company": "OSF Digital",
+      "role": "Platform Engineer / SRE",
+      "period": "May 2022 – Mar 2023",
+      "achievements": [
+        "Gestión de pipelines CI/CD para una flota de 70+ microservicios Java en el proyecto SuperApp Porto Seguro, reduciendo el tiempo de deploy de 20 a 8 minutos (-60%).",
+        "Estructuración de un stack de observabilidad (ELK/Kibana, OpenSearch, AWS CloudWatch, AppDynamics) para el monitoreo en tiempo real de sistemas distribuidos, incluyendo el aprovisionamiento del ELK con Terraform en la flota.",
+        "Ingeniería de identificación de origen (IP, dispositivo y usuario) vía análisis de User-Agent, aumentando la precisión de troubleshooting por canal."
+      ],
+      "stack": [
+        "Java",
+        "Kibana",
+        "OpenSearch",
+        "AWS CloudWatch",
+        "AppDynamics",
+        "Terraform",
+        "Angular"
+      ]
+    },
+    {
+      "company": "VIASOFT",
+      "role": "Technical Lead / Backend Engineer",
+      "period": "Jul 2019 – Abr 2022",
+      "achievements": [
+        "Modernización de la integración entre el sistema legado de escritorio y un microservicio REST stateless en Java/Spring Boot, viabilizando la expansión a la plataforma móvil Android.",
+        "Liderazgo técnico del producto Sales Platform Web, definiendo estándares de arquitectura y criterios de code review para el equipo de ingeniería.",
+        "Implantación de un pipeline CI/CD (Jenkins), automatizando build y deploy continuo de la plataforma."
+      ],
+      "stack": [
+        "Java",
+        "Spring Boot",
+        "Android",
+        "Jenkins",
+        "Angular"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Lenguajes y Backend",
+      "description": "Java 8–25, Spring Boot y Virtual Threads.",
+      "items": [
+        "Java (8 a 25 LTS)",
+        "Spring Boot",
+        "Virtual Threads",
+        "Hibernate",
+        "Angular"
+      ]
+    },
+    {
+      "category": "Cloud, DevOps y FinOps",
+      "description": "Infraestructura como código, contenedorización y optimización de costos en la nube.",
+      "items": [
+        "AWS (EKS, S3, SQS, CloudWatch)",
+        "Docker",
+        "Terraform",
+        "Jenkins / GitLab CI"
+      ]
+    },
+    {
+      "category": "IA y Observabilidad",
+      "description": "Ingeniería asistida por IA, con revisión técnica de arquitectura, seguridad y reglas de negocio, y monitoreo en tiempo real de microservicios.",
+      "items": [
+        "Claude Code / OpenCode / Cursor / Copilot",
+        "ELK / Kibana",
+        "OpenSearch",
+        "AppDynamics",
+        "MongoDB / PostgreSQL"
+      ]
+    }
+  ],
+  "education": {
+    "academic": "Tecnólogo en Análisis y Desarrollo de Sistemas — UNINTER (2022 – 2023)"
+  },
+  "platform": {
+    "kicker": "// la plataforma",
+    "title": "Qué corre en producción",
+    "body": "La API transaccional corre en EKS. El lote va a SQS, el archivo sale por URL firmada en S3, el canal en vivo es WebSocket y el estado queda en MongoDB.",
+    "diagram": {
+      "type": "platform",
+      "title": "Mapa de la plataforma en producción: API en EKS, con SQS, S3, WebSocket y MongoDB",
+      "caption": "Un mapa de lo que está en el aire.",
+      "legend": [
+        {
+          "tone": "happy",
+          "label": "camino"
+        },
+        {
+          "tone": "data",
+          "label": "dato o costo"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "api",
+          "title": "API",
+          "col": 0,
+          "row": 1,
+          "sub": "transaccional"
+        },
+        {
+          "id": "eks",
+          "title": "EKS",
+          "sub": "Java 25",
+          "col": 1,
+          "row": 1,
+          "highlight": true
+        },
+        {
+          "id": "sqs",
+          "title": "SQS",
+          "col": 2,
+          "row": 0,
+          "tone": "data",
+          "sub": "lote"
+        },
+        {
+          "id": "s3",
+          "title": "S3",
+          "col": 2,
+          "row": 1,
+          "tone": "data",
+          "sub": "URL firmada"
+        },
+        {
+          "id": "ws",
+          "title": "WebSocket",
+          "col": 2,
+          "row": 2,
+          "sub": "autenticado"
+        },
+        {
+          "id": "mongo",
+          "title": "MongoDB",
+          "sub": "Mongock",
+          "col": 3,
+          "row": 1,
+          "tone": "data"
+        }
+      ],
+      "edges": [
+        {
+          "from": "api",
+          "to": "eks"
+        },
+        {
+          "from": "eks",
+          "to": "sqs",
+          "tone": "data"
+        },
+        {
+          "from": "eks",
+          "to": "s3",
+          "tone": "data"
+        },
+        {
+          "from": "eks",
+          "to": "ws"
+        },
+        {
+          "from": "eks",
+          "to": "mongo",
+          "tone": "data"
+        }
+      ]
+    }
+  }
+}

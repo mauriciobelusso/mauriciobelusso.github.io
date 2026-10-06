@@ -1,0 +1,404 @@
+{
+  "meta": {
+    "lang": "en"
+  },
+  "ui": {
+    "navAbout": "// about",
+    "navHighlights": "// impact",
+    "navExperience": "// experience",
+    "navStack": "// stack",
+    "navEducation": "// education",
+    "navContact": "tech_channel()",
+    "ctaGithub": "GitHub Profile →",
+    "ctaLinkedin": "LinkedIn Profile →",
+    "ctaCv": "Download résumé (A4)",
+    "ctaGithubShort": "GitHub Profile",
+    "ctaLinkedinShort": "LinkedIn Profile",
+    "highlightsKicker": "// Measurable Impact & FinOps",
+    "highlightsTitle": "Engineering Results in Production",
+    "experienceKicker": "// Career & History",
+    "experienceTitle": "Professional Path",
+    "skillsKicker": "// Stack & Skills",
+    "skillsTitle": "Technical skills",
+    "educationKicker": "// Education & Continuous Development",
+    "educationTitle": "Education and Qualifications",
+    "educationAcademicLabel": "Academic Background",
+    "languagesLabel": "Languages",
+    "contactKicker": "// Contact",
+    "contactTags": "Architecture · Distributed systems · FinOps",
+    "footer": "© {year} Mauricio Belusso. Data in locales/{lang}/resume.json.",
+    "loading": "Loading…",
+    "loadingResume": "Loading résumé…",
+    "loadError": "Could not load the résumé. Serve the site over HTTP (e.g. GitHub Pages or a local server).",
+    "emailSubject": "Architecture and distributed systems",
+    "langSwitcherAria": "Select language",
+    "cvBack": "← Notes",
+    "cvPrint": "Print / save PDF",
+    "cvTitleSuffix": "Résumé",
+    "cvImpact": "Impact",
+    "cvExperience": "Experience",
+    "cvStack": "Stack",
+    "cvEducation": "Education",
+    "cvLanguages": "Languages",
+    "cvMobileHint": "Tap \"Print / save PDF\" below to generate the file. On some phones, the automatic download can produce an empty (0 KB) file."
+  },
+  "personal": {
+    "name": "Mauricio Belusso",
+    "title": "Staff Backend & Platform Engineer",
+    "summary": "Backend engineer working on distributed systems and JVM runtime optimization in production. In FinOps, reduced AWS EKS compute cost by 85%. Work includes Virtual Threads on Java 25 LTS and batch pipelines of hundreds of thousands of records. Scope covers memory-leak fixes and the modernization of legacy monoliths into decoupled, observable platforms.",
+    "availability": "Architecture and distributed systems",
+    "contactHeadline": "Architecture, distributed systems, and infrastructure cost.",
+    "contactBody": "I am open to conversations about architecture, production systems, and cloud-cost optimization.",
+    "contactCta": "Talk to me",
+    "email": "mauriciobelusso@gmail.com",
+    "github": "https://github.com/mauriciobelusso",
+    "linkedin": "https://www.linkedin.com/in/mauriciobelusso",
+    "location": "Brazil",
+    "languages": [
+      {
+        "name": "Portuguese",
+        "level": "Native"
+      },
+      {
+        "name": "English",
+        "level": "Intermediate, B1-B2"
+      }
+    ]
+  },
+  "highlights": [
+    {
+      "metric": "-85% AWS EKS Costs",
+      "tag": "Troubleshooting & Memory Leak",
+      "title": "High-Frequency Transactional API Optimization",
+      "description": "Diagnosed, with advanced profiling, and fixed a critical memory leak in an endpoint exposed to automation bots. Reduced required infrastructure from 12 pods (3GB RAM each) to only 1–2 pods (1.5GB RAM), eliminating Out-of-Memory (OOM) crashes in production.",
+      "diagram": {
+        "type": "compare",
+        "title": "Twelve pods hitting OOM reduced to one or two stable pods",
+        "caption": "Profiling cuts the heap. EKS compute drops 85%.",
+        "bridge": "profiling",
+        "before": {
+          "kicker": "before",
+          "value": "12",
+          "unit": "pods × 3 GB",
+          "detail": "OOM in production",
+          "marks": 12
+        },
+        "after": {
+          "kicker": "after",
+          "value": "1–2",
+          "unit": "pods × 1.5 GB",
+          "detail": "no crashes",
+          "marks": 2
+        }
+      }
+    },
+    {
+      "metric": "300k Records / Batch",
+      "tag": "Credit Restriction",
+      "title": "Highly Scalable Batch Processing",
+      "description": "Architected scalable AWS SQS flows for private credit annotation and reconciliation (PEFIN, REFIN, and CONVEM), processing up to 300 thousand tax IDs (CPF/CNPJ) in a single run with no impact on availability.",
+      "diagram": {
+        "type": "flow",
+        "title": "Credit-restriction batch decoupled from the API",
+        "caption": "Up to 300 thousand tax IDs. The API stays available.",
+        "nodes": [
+          {
+            "title": "Ingress",
+            "sub": "annotation"
+          },
+          {
+            "title": "SQS",
+            "sub": "queue",
+            "tone": "data"
+          },
+          {
+            "title": "Workers",
+            "sub": "reconcile",
+            "tone": "happy"
+          }
+        ]
+      }
+    },
+    {
+      "metric": "100 mcores → 30 mcores",
+      "metrics": [
+        "100 mcores → 30 mcores",
+        "1.3 GB → 900 MB"
+      ],
+      "tag": "Virtual Threads (Loom)",
+      "title": "Migration to Java 25 LTS and Virtual Threads",
+      "description": "Led the modernization of microservices from Java 8 to 25 LTS. Adopted Virtual Threads, cutting average CPU consumption by 70% and memory from 1.3 GB to 900 MB — a level held under high load — while mitigating physical-thread blocking (carrier thread pinning) in synchronized blocks.",
+      "diagram": {
+        "type": "compare",
+        "variant": "threads",
+        "title": "Pinned platform thread against a Java 25 virtual thread",
+        "caption": "CPU from 100 to 30 mcores. Memory from 1.3 GB to 900 MB under load.",
+        "bridge": "Loom",
+        "before": {
+          "kicker": "Java 8",
+          "value": "100",
+          "unit": "mcores",
+          "detail": "1.3 GB",
+          "note": "synchronized"
+        },
+        "after": {
+          "kicker": "Java 25",
+          "value": "30",
+          "unit": "mcores",
+          "detail": "900 MB",
+          "note": "virtual thread"
+        }
+      }
+    },
+    {
+      "metric": "Weeks → Instant",
+      "tag": "Operational Autonomy",
+      "title": "Dynamic Variable Substitution Engine",
+      "description": "Built a notification-document rendering engine. The operations team now publishes new layouts without code or deploys.",
+      "diagram": {
+        "type": "flow",
+        "title": "Operations publishes the layout without a deploy",
+        "caption": "What used to take weeks now ships immediately.",
+        "nodes": [
+          {
+            "title": "Operations",
+            "sub": "layout"
+          },
+          {
+            "title": "Engine",
+            "sub": "variables",
+            "tone": "happy"
+          },
+          {
+            "title": "Document",
+            "sub": "immediate"
+          }
+        ]
+      }
+    }
+  ],
+  "experience": [
+    {
+      "company": "Verx Tecnologia e Inovação",
+      "role": "Staff Backend Engineer / Platform Architect",
+      "period": "Jan 2025 – Present",
+      "achievements": [
+        "Led an 85% infrastructure-cost reduction for a critical API on AWS EKS.",
+        "Architected decoupled batch solutions on AWS SQS for processing credit-restriction records.",
+        "Real-time channels with native authenticated WebSockets and decoupled uploads via S3 Signed URLs.",
+        "Ongoing migration of the microservices ecosystem to Java 25 LTS with Virtual Threads, reducing CPU from 100 to 30 mcores and memory from 1.3 GB to 900 MB even under high load.",
+        "NoSQL database tuning (MongoDB), explain-plan analysis, and index application via Mongock without deploy locks."
+      ],
+      "stack": [
+        "Java 25",
+        "Spring Boot",
+        "AWS EKS",
+        "AWS S3",
+        "AWS SQS",
+        "MongoDB",
+        "Mongock",
+        "Angular"
+      ]
+    },
+    {
+      "company": "Softfocus",
+      "role": "Senior Software Engineer / Backend Architect",
+      "period": "Nov 2023 – Nov 2024",
+      "achievements": [
+        "Developed a proprietary annotation-based dependency-injection framework to decouple a legacy monolith, cutting production defects by 60% and code structural complexity by 70%.",
+        "Integrated critical transactional systems with financial institutions and credit unions via secure REST APIs connected to BACEN, ensuring regulatory compliance across sensitive data flows."
+      ],
+      "stack": [
+        "Java",
+        "PostgreSQL",
+        "Docker",
+        "REST APIs",
+        "Angular"
+      ]
+    },
+    {
+      "company": "Mirante Tecnologia",
+      "role": "Technical Lead / Solutions Architect",
+      "period": "Mar 2023 – Nov 2023",
+      "achievements": [
+        "Defined the technology stack and solution architecture for the INCRA public-notice automation project.",
+        "Engineered the automated notice-generation module, eliminating manual processes and compressing document drafting time.",
+        "Implemented ICP-Brasil digital-certificate signing and gov.br authentication integration, enabling candidates to apply directly with legal validity.",
+        "Set up the CI/CD pipeline (GitLab) from the project's inception, automating build, tests, and deploy."
+      ],
+      "stack": [
+        "Java",
+        "GitLab CI/CD",
+        "gov.br",
+        "Digital Certificate",
+        "Angular"
+      ]
+    },
+    {
+      "company": "OSF Digital",
+      "role": "Platform Engineer / SRE",
+      "period": "May 2022 – Mar 2023",
+      "achievements": [
+        "Managed CI/CD pipelines for a fleet of 70+ Java microservices on the SuperApp Porto Seguro project, cutting deploy time from 20 to 8 minutes (-60%).",
+        "Built an observability stack (ELK/Kibana, OpenSearch, AWS CloudWatch, AppDynamics) for real-time monitoring of distributed systems, including Terraform provisioning of ELK across the fleet.",
+        "Engineered origin identification (IP, device, and user) via User-Agent analysis, increasing troubleshooting precision by channel."
+      ],
+      "stack": [
+        "Java",
+        "Kibana",
+        "OpenSearch",
+        "AWS CloudWatch",
+        "AppDynamics",
+        "Terraform",
+        "Angular"
+      ]
+    },
+    {
+      "company": "VIASOFT",
+      "role": "Technical Lead / Backend Engineer",
+      "period": "Jul 2019 – Apr 2022",
+      "achievements": [
+        "Modernized the integration between the legacy desktop system and a stateless REST microservice in Java/Spring Boot, enabling expansion to the Android mobile platform.",
+        "Led the Sales Platform Web product technically, defining architecture standards and code-review criteria for the engineering team.",
+        "Deployed a CI/CD pipeline (Jenkins), automating continuous build and deploy for the platform."
+      ],
+      "stack": [
+        "Java",
+        "Spring Boot",
+        "Android",
+        "Jenkins",
+        "Angular"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "category": "Languages & Backend",
+      "description": "Java 8–25, Spring Boot, and Virtual Threads.",
+      "items": [
+        "Java (8 to 25 LTS)",
+        "Spring Boot",
+        "Virtual Threads",
+        "Hibernate",
+        "Angular"
+      ]
+    },
+    {
+      "category": "Cloud, DevOps & FinOps",
+      "description": "Infrastructure as code, containerization, and cloud-cost optimization.",
+      "items": [
+        "AWS (EKS, S3, SQS, CloudWatch)",
+        "Docker",
+        "Terraform",
+        "Jenkins / GitLab CI"
+      ]
+    },
+    {
+      "category": "AI & Observability",
+      "description": "AI-assisted engineering, with technical review of architecture, security, and business rules, and real-time microservice monitoring.",
+      "items": [
+        "Claude Code / OpenCode / Cursor / Copilot",
+        "ELK / Kibana",
+        "OpenSearch",
+        "AppDynamics",
+        "MongoDB / PostgreSQL"
+      ]
+    }
+  ],
+  "education": {
+    "academic": "Technologist in Systems Analysis and Development — UNINTER (2022 – 2023)"
+  },
+  "platform": {
+    "kicker": "// the platform",
+    "title": "What runs in production",
+    "body": "The transactional API runs on EKS. Batch goes to SQS, files leave through S3 signed URLs, the live channel is WebSocket, and state sits in MongoDB.",
+    "diagram": {
+      "type": "platform",
+      "title": "Production platform map: API on EKS, with SQS, S3, WebSocket, and MongoDB",
+      "caption": "A map of what is actually running.",
+      "legend": [
+        {
+          "tone": "happy",
+          "label": "path"
+        },
+        {
+          "tone": "data",
+          "label": "data or cost"
+        }
+      ],
+      "nodes": [
+        {
+          "id": "api",
+          "title": "API",
+          "col": 0,
+          "row": 1,
+          "sub": "transactional"
+        },
+        {
+          "id": "eks",
+          "title": "EKS",
+          "sub": "Java 25",
+          "col": 1,
+          "row": 1,
+          "highlight": true
+        },
+        {
+          "id": "sqs",
+          "title": "SQS",
+          "col": 2,
+          "row": 0,
+          "tone": "data",
+          "sub": "batch"
+        },
+        {
+          "id": "s3",
+          "title": "S3",
+          "col": 2,
+          "row": 1,
+          "tone": "data",
+          "sub": "signed URL"
+        },
+        {
+          "id": "ws",
+          "title": "WebSocket",
+          "col": 2,
+          "row": 2,
+          "sub": "authenticated"
+        },
+        {
+          "id": "mongo",
+          "title": "MongoDB",
+          "sub": "Mongock",
+          "col": 3,
+          "row": 1,
+          "tone": "data"
+        }
+      ],
+      "edges": [
+        {
+          "from": "api",
+          "to": "eks"
+        },
+        {
+          "from": "eks",
+          "to": "sqs",
+          "tone": "data"
+        },
+        {
+          "from": "eks",
+          "to": "s3",
+          "tone": "data"
+        },
+        {
+          "from": "eks",
+          "to": "ws"
+        },
+        {
+          "from": "eks",
+          "to": "mongo",
+          "tone": "data"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+title: Mauricio Belusso
+description: Notas de produção sobre JVM, fila e custo de infraestrutura.
+url: https://mauriciobelusso.dev
+lang: pt-BR
+timezone: America/Sao_Paulo
+author: Mauricio Belusso
+theme: jekyll-theme-minimal
+show_downloads: false
+logo: false
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+permalink: /:title/
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - scripts
+  - README.md
+  - LICENSE
+  - AGENTS.md
+  - .agents
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
